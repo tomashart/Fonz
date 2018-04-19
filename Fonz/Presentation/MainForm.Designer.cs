@@ -30,9 +30,8 @@
 		{
 			this.progressBar = new System.Windows.Forms.ProgressBar();
 			this.tabControl = new System.Windows.Forms.TabControl();
-			this.trawlPage = new System.Windows.Forms.TabPage();
+			this.referenceTab = new System.Windows.Forms.TabPage();
 			this.trawlComparisonDataGroupBox = new System.Windows.Forms.GroupBox();
-			this.comparisonDataGridView = new System.Windows.Forms.DataGridView();
 			this.trawlReferenceSheetGenerateButton = new System.Windows.Forms.Button();
 			this.trawlComparisonDataCategoriesCheckBox = new System.Windows.Forms.CheckBox();
 			this.trawlComparisonDataProductsCheckBox = new System.Windows.Forms.CheckBox();
@@ -48,24 +47,41 @@
 			this.trawlConnectionStringDatabaseLabel = new System.Windows.Forms.Label();
 			this.trawlConnectionStringPasswordLabel = new System.Windows.Forms.Label();
 			this.trawlConnectionStringUserLabel = new System.Windows.Forms.Label();
-			this.crawlPage = new System.Windows.Forms.TabPage();
+			this.grabTab = new System.Windows.Forms.TabPage();
 			this.crawlSiteGroupBox = new System.Windows.Forms.GroupBox();
-			this.crawlSiteCommenceButton = new System.Windows.Forms.Button();
 			this.crawlSiteTextBox = new System.Windows.Forms.TextBox();
 			this.crawlSiteHostnameLabel = new System.Windows.Forms.Label();
-			this.comparisonDataSet = new System.Data.DataSet();
 			this.trawlConsoleGroupBox = new System.Windows.Forms.GroupBox();
 			this.trawlConsoleClearButton = new System.Windows.Forms.Button();
 			this.trawlConsoleTextBox = new System.Windows.Forms.RichTextBox();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.radioButton1 = new System.Windows.Forms.RadioButton();
+			this.radioButton2 = new System.Windows.Forms.RadioButton();
+			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.button1 = new System.Windows.Forms.Button();
+			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+			this.button2 = new System.Windows.Forms.Button();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.checkBox2 = new System.Windows.Forms.CheckBox();
+			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.checkBox3 = new System.Windows.Forms.CheckBox();
+			this.textBox6 = new System.Windows.Forms.TextBox();
+			this.checkBox4 = new System.Windows.Forms.CheckBox();
+			this.textBox7 = new System.Windows.Forms.TextBox();
+			this.checkBox5 = new System.Windows.Forms.CheckBox();
 			this.tabControl.SuspendLayout();
-			this.trawlPage.SuspendLayout();
+			this.referenceTab.SuspendLayout();
 			this.trawlComparisonDataGroupBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.comparisonDataGridView)).BeginInit();
 			this.trawlConnectionStringGroupBox.SuspendLayout();
-			this.crawlPage.SuspendLayout();
+			this.grabTab.SuspendLayout();
 			this.crawlSiteGroupBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.comparisonDataSet)).BeginInit();
 			this.trawlConsoleGroupBox.SuspendLayout();
+			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// progressBar
@@ -77,36 +93,36 @@
 			// 
 			// tabControl
 			// 
-			this.tabControl.Controls.Add(this.trawlPage);
-			this.tabControl.Controls.Add(this.crawlPage);
+			this.tabControl.Controls.Add(this.referenceTab);
+			this.tabControl.Controls.Add(this.grabTab);
 			this.tabControl.Location = new System.Drawing.Point(12, 12);
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
 			this.tabControl.Size = new System.Drawing.Size(617, 333);
 			this.tabControl.TabIndex = 2;
 			// 
-			// trawlPage
+			// referenceTab
 			// 
-			this.trawlPage.Controls.Add(this.trawlComparisonDataGroupBox);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringPortTextBox);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringPortLabel);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringAddressTextBox);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringAddressLabel);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringPasswordTextBox);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringVerifyButton);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringUserTextBox);
-			this.trawlPage.Controls.Add(this.trawlConnectionStringGroupBox);
-			this.trawlPage.Location = new System.Drawing.Point(4, 22);
-			this.trawlPage.Name = "trawlPage";
-			this.trawlPage.Padding = new System.Windows.Forms.Padding(3);
-			this.trawlPage.Size = new System.Drawing.Size(609, 307);
-			this.trawlPage.TabIndex = 0;
-			this.trawlPage.Text = "Trawl";
-			this.trawlPage.UseVisualStyleBackColor = true;
+			this.referenceTab.Controls.Add(this.trawlComparisonDataGroupBox);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringPortTextBox);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringPortLabel);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringAddressTextBox);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringAddressLabel);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringPasswordTextBox);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringVerifyButton);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringUserTextBox);
+			this.referenceTab.Controls.Add(this.trawlConnectionStringGroupBox);
+			this.referenceTab.Location = new System.Drawing.Point(4, 22);
+			this.referenceTab.Name = "referenceTab";
+			this.referenceTab.Padding = new System.Windows.Forms.Padding(3);
+			this.referenceTab.Size = new System.Drawing.Size(609, 307);
+			this.referenceTab.TabIndex = 0;
+			this.referenceTab.Text = "Reference";
+			this.referenceTab.UseVisualStyleBackColor = true;
 			// 
 			// trawlComparisonDataGroupBox
 			// 
-			this.trawlComparisonDataGroupBox.Controls.Add(this.comparisonDataGridView);
+			this.trawlComparisonDataGroupBox.Controls.Add(this.button2);
 			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlReferenceSheetGenerateButton);
 			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlComparisonDataCategoriesCheckBox);
 			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlComparisonDataProductsCheckBox);
@@ -116,14 +132,6 @@
 			this.trawlComparisonDataGroupBox.TabIndex = 12;
 			this.trawlComparisonDataGroupBox.TabStop = false;
 			this.trawlComparisonDataGroupBox.Text = "Comparison Data";
-			// 
-			// comparisonDataGridView
-			// 
-			this.comparisonDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.comparisonDataGridView.Location = new System.Drawing.Point(6, 19);
-			this.comparisonDataGridView.Name = "comparisonDataGridView";
-			this.comparisonDataGridView.Size = new System.Drawing.Size(384, 122);
-			this.comparisonDataGridView.TabIndex = 14;
 			// 
 			// trawlReferenceSheetGenerateButton
 			// 
@@ -259,37 +267,34 @@
 			this.trawlConnectionStringUserLabel.TabIndex = 0;
 			this.trawlConnectionStringUserLabel.Text = "User";
 			// 
-			// crawlPage
+			// grabTab
 			// 
-			this.crawlPage.Controls.Add(this.crawlSiteGroupBox);
-			this.crawlPage.Location = new System.Drawing.Point(4, 22);
-			this.crawlPage.Name = "crawlPage";
-			this.crawlPage.Padding = new System.Windows.Forms.Padding(3);
-			this.crawlPage.Size = new System.Drawing.Size(609, 307);
-			this.crawlPage.TabIndex = 1;
-			this.crawlPage.Text = "Crawl";
-			this.crawlPage.UseVisualStyleBackColor = true;
+			this.grabTab.Controls.Add(this.groupBox1);
+			this.grabTab.Controls.Add(this.crawlSiteGroupBox);
+			this.grabTab.Location = new System.Drawing.Point(4, 22);
+			this.grabTab.Name = "grabTab";
+			this.grabTab.Padding = new System.Windows.Forms.Padding(3);
+			this.grabTab.Size = new System.Drawing.Size(609, 307);
+			this.grabTab.TabIndex = 1;
+			this.grabTab.Text = "Grab";
+			this.grabTab.UseVisualStyleBackColor = true;
 			// 
 			// crawlSiteGroupBox
 			// 
-			this.crawlSiteGroupBox.Controls.Add(this.crawlSiteCommenceButton);
+			this.crawlSiteGroupBox.Controls.Add(this.radioButton2);
+			this.crawlSiteGroupBox.Controls.Add(this.radioButton1);
+			this.crawlSiteGroupBox.Controls.Add(this.textBox2);
+			this.crawlSiteGroupBox.Controls.Add(this.label2);
+			this.crawlSiteGroupBox.Controls.Add(this.textBox1);
+			this.crawlSiteGroupBox.Controls.Add(this.label1);
 			this.crawlSiteGroupBox.Controls.Add(this.crawlSiteTextBox);
 			this.crawlSiteGroupBox.Controls.Add(this.crawlSiteHostnameLabel);
 			this.crawlSiteGroupBox.Location = new System.Drawing.Point(6, 6);
 			this.crawlSiteGroupBox.Name = "crawlSiteGroupBox";
-			this.crawlSiteGroupBox.Size = new System.Drawing.Size(597, 82);
+			this.crawlSiteGroupBox.Size = new System.Drawing.Size(597, 140);
 			this.crawlSiteGroupBox.TabIndex = 0;
 			this.crawlSiteGroupBox.TabStop = false;
 			this.crawlSiteGroupBox.Text = "Site";
-			// 
-			// crawlSiteCommenceButton
-			// 
-			this.crawlSiteCommenceButton.Location = new System.Drawing.Point(406, 48);
-			this.crawlSiteCommenceButton.Name = "crawlSiteCommenceButton";
-			this.crawlSiteCommenceButton.Size = new System.Drawing.Size(185, 20);
-			this.crawlSiteCommenceButton.TabIndex = 4;
-			this.crawlSiteCommenceButton.Text = "Commence";
-			this.crawlSiteCommenceButton.UseVisualStyleBackColor = true;
 			// 
 			// crawlSiteTextBox
 			// 
@@ -307,10 +312,6 @@
 			this.crawlSiteHostnameLabel.Size = new System.Drawing.Size(55, 13);
 			this.crawlSiteHostnameLabel.TabIndex = 2;
 			this.crawlSiteHostnameLabel.Text = "Hostname";
-			// 
-			// comparisonDataSet
-			// 
-			this.comparisonDataSet.DataSetName = "ComparisonDataSet";
 			// 
 			// trawlConsoleGroupBox
 			// 
@@ -343,6 +344,187 @@
 			this.trawlConsoleTextBox.TabIndex = 9;
 			this.trawlConsoleTextBox.Text = "";
 			// 
+			// textBox1
+			// 
+			this.textBox1.Location = new System.Drawing.Point(6, 104);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(191, 20);
+			this.textBox1.TabIndex = 6;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(9, 88);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(91, 13);
+			this.label1.TabIndex = 5;
+			this.label1.Text = "Username / Email";
+			// 
+			// textBox2
+			// 
+			this.textBox2.Location = new System.Drawing.Point(203, 104);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(191, 20);
+			this.textBox2.TabIndex = 8;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(206, 88);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(53, 13);
+			this.label2.TabIndex = 7;
+			this.label2.Text = "Password";
+			// 
+			// radioButton1
+			// 
+			this.radioButton1.AutoSize = true;
+			this.radioButton1.Location = new System.Drawing.Point(209, 48);
+			this.radioButton1.Name = "radioButton1";
+			this.radioButton1.Size = new System.Drawing.Size(64, 17);
+			this.radioButton1.TabIndex = 9;
+			this.radioButton1.TabStop = true;
+			this.radioButton1.Text = "No Auth";
+			this.radioButton1.UseVisualStyleBackColor = true;
+			// 
+			// radioButton2
+			// 
+			this.radioButton2.AutoSize = true;
+			this.radioButton2.Location = new System.Drawing.Point(309, 48);
+			this.radioButton2.Name = "radioButton2";
+			this.radioButton2.Size = new System.Drawing.Size(47, 17);
+			this.radioButton2.TabIndex = 10;
+			this.radioButton2.TabStop = true;
+			this.radioButton2.Text = "Auth";
+			this.radioButton2.UseVisualStyleBackColor = true;
+			// 
+			// groupBox1
+			// 
+			this.groupBox1.Controls.Add(this.textBox7);
+			this.groupBox1.Controls.Add(this.checkBox5);
+			this.groupBox1.Controls.Add(this.textBox6);
+			this.groupBox1.Controls.Add(this.checkBox4);
+			this.groupBox1.Controls.Add(this.textBox5);
+			this.groupBox1.Controls.Add(this.checkBox3);
+			this.groupBox1.Controls.Add(this.textBox4);
+			this.groupBox1.Controls.Add(this.checkBox2);
+			this.groupBox1.Controls.Add(this.textBox3);
+			this.groupBox1.Controls.Add(this.checkBox1);
+			this.groupBox1.Controls.Add(this.button1);
+			this.groupBox1.Location = new System.Drawing.Point(6, 152);
+			this.groupBox1.Name = "groupBox1";
+			this.groupBox1.Size = new System.Drawing.Size(597, 149);
+			this.groupBox1.TabIndex = 11;
+			this.groupBox1.TabStop = false;
+			this.groupBox1.Text = "Data";
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(406, 113);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(185, 20);
+			this.button1.TabIndex = 4;
+			this.button1.Text = "Commence";
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// openFileDialog1
+			// 
+			this.openFileDialog1.FileName = "openFileDialog1";
+			// 
+			// button2
+			// 
+			this.button2.Location = new System.Drawing.Point(406, 97);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(185, 19);
+			this.button2.TabIndex = 14;
+			this.button2.Text = "Load...";
+			this.button2.UseVisualStyleBackColor = true;
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(6, 29);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(54, 17);
+			this.checkBox1.TabIndex = 5;
+			this.checkBox1.Text = "Name";
+			this.checkBox1.UseVisualStyleBackColor = true;
+			// 
+			// textBox3
+			// 
+			this.textBox3.Location = new System.Drawing.Point(6, 52);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(142, 20);
+			this.textBox3.TabIndex = 11;
+			// 
+			// textBox4
+			// 
+			this.textBox4.Location = new System.Drawing.Point(154, 52);
+			this.textBox4.Name = "textBox4";
+			this.textBox4.Size = new System.Drawing.Size(142, 20);
+			this.textBox4.TabIndex = 13;
+			// 
+			// checkBox2
+			// 
+			this.checkBox2.AutoSize = true;
+			this.checkBox2.Location = new System.Drawing.Point(154, 29);
+			this.checkBox2.Name = "checkBox2";
+			this.checkBox2.Size = new System.Drawing.Size(98, 17);
+			this.checkBox2.TabIndex = 12;
+			this.checkBox2.Text = "Full Description";
+			this.checkBox2.UseVisualStyleBackColor = true;
+			// 
+			// textBox5
+			// 
+			this.textBox5.Location = new System.Drawing.Point(302, 52);
+			this.textBox5.Name = "textBox5";
+			this.textBox5.Size = new System.Drawing.Size(142, 20);
+			this.textBox5.TabIndex = 15;
+			// 
+			// checkBox3
+			// 
+			this.checkBox3.AutoSize = true;
+			this.checkBox3.Location = new System.Drawing.Point(302, 29);
+			this.checkBox3.Name = "checkBox3";
+			this.checkBox3.Size = new System.Drawing.Size(59, 17);
+			this.checkBox3.TabIndex = 14;
+			this.checkBox3.Text = "Picture";
+			this.checkBox3.UseVisualStyleBackColor = true;
+			// 
+			// textBox6
+			// 
+			this.textBox6.Location = new System.Drawing.Point(6, 113);
+			this.textBox6.Name = "textBox6";
+			this.textBox6.Size = new System.Drawing.Size(142, 20);
+			this.textBox6.TabIndex = 17;
+			// 
+			// checkBox4
+			// 
+			this.checkBox4.AutoSize = true;
+			this.checkBox4.Location = new System.Drawing.Point(6, 90);
+			this.checkBox4.Name = "checkBox4";
+			this.checkBox4.Size = new System.Drawing.Size(70, 17);
+			this.checkBox4.TabIndex = 16;
+			this.checkBox4.Text = "Attributes";
+			this.checkBox4.UseVisualStyleBackColor = true;
+			// 
+			// textBox7
+			// 
+			this.textBox7.Location = new System.Drawing.Point(154, 113);
+			this.textBox7.Name = "textBox7";
+			this.textBox7.Size = new System.Drawing.Size(142, 20);
+			this.textBox7.TabIndex = 19;
+			// 
+			// checkBox5
+			// 
+			this.checkBox5.AutoSize = true;
+			this.checkBox5.Location = new System.Drawing.Point(154, 90);
+			this.checkBox5.Name = "checkBox5";
+			this.checkBox5.Size = new System.Drawing.Size(68, 17);
+			this.checkBox5.TabIndex = 18;
+			this.checkBox5.Text = "Category";
+			this.checkBox5.UseVisualStyleBackColor = true;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,18 +536,18 @@
 			this.Name = "MainForm";
 			this.Text = "Fonz - Powered by Storefront TM";
 			this.tabControl.ResumeLayout(false);
-			this.trawlPage.ResumeLayout(false);
-			this.trawlPage.PerformLayout();
+			this.referenceTab.ResumeLayout(false);
+			this.referenceTab.PerformLayout();
 			this.trawlComparisonDataGroupBox.ResumeLayout(false);
 			this.trawlComparisonDataGroupBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.comparisonDataGridView)).EndInit();
 			this.trawlConnectionStringGroupBox.ResumeLayout(false);
 			this.trawlConnectionStringGroupBox.PerformLayout();
-			this.crawlPage.ResumeLayout(false);
+			this.grabTab.ResumeLayout(false);
 			this.crawlSiteGroupBox.ResumeLayout(false);
 			this.crawlSiteGroupBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.comparisonDataSet)).EndInit();
 			this.trawlConsoleGroupBox.ResumeLayout(false);
+			this.groupBox1.ResumeLayout(false);
+			this.groupBox1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -373,9 +555,9 @@
 		#endregion
 		private System.Windows.Forms.ProgressBar progressBar;
 		private System.Windows.Forms.TabControl tabControl;
-		private System.Windows.Forms.TabPage trawlPage;
+		private System.Windows.Forms.TabPage referenceTab;
 		private System.Windows.Forms.Label trawlConnectionStringUserLabel;
-		private System.Windows.Forms.TabPage crawlPage;
+		private System.Windows.Forms.TabPage grabTab;
 		private System.Windows.Forms.TextBox trawlConnectionStringPortTextBox;
 		private System.Windows.Forms.Label trawlConnectionStringPortLabel;
 		private System.Windows.Forms.TextBox trawlConnectionStringAddressTextBox;
@@ -392,14 +574,31 @@
 		private System.Windows.Forms.TextBox trawlConnectionStringDatabaseTextBox;
 		private System.Windows.Forms.Label trawlConnectionStringDatabaseLabel;
 		private System.Windows.Forms.GroupBox crawlSiteGroupBox;
-		private System.Windows.Forms.Button crawlSiteCommenceButton;
 		private System.Windows.Forms.TextBox crawlSiteTextBox;
 		private System.Windows.Forms.Label crawlSiteHostnameLabel;
-		private System.Windows.Forms.DataGridView comparisonDataGridView;
-		private System.Data.DataSet comparisonDataSet;
 		private System.Windows.Forms.GroupBox trawlConsoleGroupBox;
 		private System.Windows.Forms.Button trawlConsoleClearButton;
 		private System.Windows.Forms.RichTextBox trawlConsoleTextBox;
+		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.RadioButton radioButton2;
+		private System.Windows.Forms.RadioButton radioButton1;
+		private System.Windows.Forms.TextBox textBox2;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.OpenFileDialog openFileDialog1;
+		private System.Windows.Forms.TextBox textBox7;
+		private System.Windows.Forms.CheckBox checkBox5;
+		private System.Windows.Forms.TextBox textBox6;
+		private System.Windows.Forms.CheckBox checkBox4;
+		private System.Windows.Forms.TextBox textBox5;
+		private System.Windows.Forms.CheckBox checkBox3;
+		private System.Windows.Forms.TextBox textBox4;
+		private System.Windows.Forms.CheckBox checkBox2;
+		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.CheckBox checkBox1;
 	}
 }
 

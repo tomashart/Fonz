@@ -11,7 +11,7 @@ using Storefront.Data;
 using Storefront.Core.Domain.Catalog;
 using Storefront.Services.Catalog;
 using Autofac;
-using Fonz.Controllers;
+using Fonz.Controllers.Trawl;
 
 namespace Fonz
 {
@@ -21,15 +21,16 @@ namespace Fonz
 		private List<Product> _products { get; set; }
 		private List<Category> _categories { get; set; }
 
-		//private IDataRepository<Product> _productRepo;
-
 		public MainForm()
 		{
-			//_productRepo = productRepo;
+			DependencyConfig dp = new DependencyConfig();
+			ContainerBuilder builder = new ContainerBuilder();
+			dp.RegisterDependencies(builder);
 
 			InitializeComponent();
 
-			_verified = false;
+			TrawlController tc = new TrawlController();
+			tc._verified = false;
 		}
 
 		private void Verify_Click(object sender, EventArgs e)

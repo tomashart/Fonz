@@ -9,8 +9,6 @@ namespace Fonz
 	{
 		public void RegisterDependencies(ContainerBuilder builder)
 		{
-			//builder.RegisterType<MainForm>().As<IDataRepository<Product>>().InstancePerRequest();
-			//builder.RegisterType<MainForm>().As<IDataRepository<Category>>().InstancePerRequest();
 			builder.RegisterGeneric(typeof(DataRepository<>)).As(typeof(IDataRepository<>)).InstancePerRequest();
 		}
 	}

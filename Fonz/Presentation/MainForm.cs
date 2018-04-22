@@ -28,9 +28,6 @@ namespace Fonz
 			dp.RegisterDependencies(builder);
 
 			InitializeComponent();
-
-			TrawlController tc = new TrawlController();
-			tc._verified = false;
 		}
 
 		private void Verify_Click(object sender, EventArgs e)
@@ -181,6 +178,17 @@ namespace Fonz
 
 				throw;
 			}
+		}
+
+		private void ToggleStatus()
+		{
+			//if (control.HasChildren)
+			//{
+			//	foreach (var child in control)
+			//	{
+
+			//	}
+			//}
 		}
 	}
 }

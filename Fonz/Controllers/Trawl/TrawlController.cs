@@ -17,12 +17,12 @@ namespace Fonz.Controllers.Trawl
 
 		public TrawlController
 		(
-			IDataRepository<Product> productRepo,
-			IDataRepository<Category> categoryRepo
+			IDataRepository<Product> productRepo
+			//,IDataRepository<Category> categoryRepo
 		)
 		{
 			this._productRepo = productRepo;
-			this._categoryRepo = categoryRepo;
+			//this._categoryRepo = categoryRepo;
 		}
 	}
 }

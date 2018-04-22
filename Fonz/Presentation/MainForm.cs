@@ -11,7 +11,8 @@ using Storefront.Data;
 using Storefront.Core.Domain.Catalog;
 using Storefront.Services.Catalog;
 using Autofac;
-using Fonz.Controllers.Trawl;
+using Fonz.Controllers.Grab;
+using System.IO;
 
 namespace Fonz
 {
@@ -20,6 +21,7 @@ namespace Fonz
 		private bool _verified { get; set; }
 		private List<Product> _products { get; set; }
 		private List<Category> _categories { get; set; }
+		private List<string> _comparisonData { get; set; }
 
 		public MainForm()
 		{
@@ -189,6 +191,56 @@ namespace Fonz
 
 			//	}
 			//}
+		}
+
+		private void trawlReferenceLoadButton_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog openFileDialog = new OpenFileDialog();
+			openFileDialog.Filter = "CSV files (*.csv)|*.csv";
+			openFileDialog.InitialDirectory = @"C:\";
+
+			if (openFileDialog.ShowDialog() == DialogResult.OK)
+			{
+				_comparisonData = ReadCSV(openFileDialog.FileName).ToList();
+			}
+		}
+
+		public IEnumerable<string> ReadCSV(string fileName, char seperator = ',')
+		{
+			return File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
+
+			//project each line as a string
+			//return lines.Select(line =>
+			//{
+			//	string[] data = line.Split(seperator);
+
+			//	return new string(data[0]);
+			//});
+		}
+
+		private void Grab_Commence(object sender, EventArgs e)
+		{
+			var selectors = new List<string>();
+
+			if (grabDataNameLabel.Checked && string.IsNullOrWhiteSpace(grabDataNameTextBox.Text))
+				selectors.Add(grabDataNameTextBox.Text);
+
+			if (grabDataFullDescriptionLabel.Checked && string.IsNullOrWhiteSpace(grabDataFullDescriptionTextBox.Text))
+				selectors.Add(grabDataFullDescriptionTextBox.Text);
+
+			if (grabDataPictureLabel.Checked && string.IsNullOrWhiteSpace(grabDataPictureTextBox.Text))
+				selectors.Add(grabDataPictureTextBox.Text);
+
+			if (grabDataAttributesLabel.Checked && string.IsNullOrWhiteSpace(grabDataAttributesTextBox.Text))
+				selectors.Add(grabDataAttributesTextBox.Text);
+
+			if (grabDataCategoryLabel.Checked && string.IsNullOrWhiteSpace(grabDataCategoryTextBox.Text))
+				selectors.Add(grabDataCategoryTextBox.Text);
+
+			if (grabDataDocumentsLabel.Checked && string.IsNullOrWhiteSpace(grabDataDocumentsTextBox.Text))
+				selectors.Add(grabDataDocumentsTextBox.Text);
+
+			GrabController.Grab(new string[] {"https://eshop.wuerth.de/0/0876007200.sku/en/US/EUR/?SupplierID=WuerthGroup-Wuerth&CategoryID=pd4KD92eJ28AAAFBhdQZ8IdN"}, selectors.ToArray());
 		}
 	}
 }

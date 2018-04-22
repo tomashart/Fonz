@@ -32,7 +32,7 @@
 			this.tabControl = new System.Windows.Forms.TabControl();
 			this.referenceTab = new System.Windows.Forms.TabPage();
 			this.trawlComparisonDataGroupBox = new System.Windows.Forms.GroupBox();
-			this.button2 = new System.Windows.Forms.Button();
+			this.trawlReferenceLoadButton = new System.Windows.Forms.Button();
 			this.trawlReferenceSheetGenerateButton = new System.Windows.Forms.Button();
 			this.trawlComparisonDataCategoriesCheckBox = new System.Windows.Forms.CheckBox();
 			this.trawlComparisonDataProductsCheckBox = new System.Windows.Forms.CheckBox();
@@ -50,17 +50,19 @@
 			this.trawlConnectionStringUserLabel = new System.Windows.Forms.Label();
 			this.grabTab = new System.Windows.Forms.TabPage();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
-			this.textBox7 = new System.Windows.Forms.TextBox();
-			this.checkBox5 = new System.Windows.Forms.CheckBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.checkBox4 = new System.Windows.Forms.CheckBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.checkBox3 = new System.Windows.Forms.CheckBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.checkBox2 = new System.Windows.Forms.CheckBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
-			this.button1 = new System.Windows.Forms.Button();
+			this.grabDataDocumentsLabel = new System.Windows.Forms.CheckBox();
+			this.grabDataDocumentsTextBox = new System.Windows.Forms.TextBox();
+			this.grabDataCategoryTextBox = new System.Windows.Forms.TextBox();
+			this.grabDataCategoryLabel = new System.Windows.Forms.CheckBox();
+			this.grabDataAttributesTextBox = new System.Windows.Forms.TextBox();
+			this.grabDataAttributesLabel = new System.Windows.Forms.CheckBox();
+			this.grabDataPictureTextBox = new System.Windows.Forms.TextBox();
+			this.grabDataPictureLabel = new System.Windows.Forms.CheckBox();
+			this.grabDataFullDescriptionTextBox = new System.Windows.Forms.TextBox();
+			this.grabDataFullDescriptionLabel = new System.Windows.Forms.CheckBox();
+			this.grabDataNameTextBox = new System.Windows.Forms.TextBox();
+			this.grabDataNameLabel = new System.Windows.Forms.CheckBox();
+			this.grabDataButton = new System.Windows.Forms.Button();
 			this.crawlSiteGroupBox = new System.Windows.Forms.GroupBox();
 			this.radioButton2 = new System.Windows.Forms.RadioButton();
 			this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -73,9 +75,7 @@
 			this.trawlConsoleGroupBox = new System.Windows.Forms.GroupBox();
 			this.trawlConsoleClearButton = new System.Windows.Forms.Button();
 			this.trawlConsoleTextBox = new System.Windows.Forms.RichTextBox();
-			this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-			this.textBox8 = new System.Windows.Forms.TextBox();
-			this.checkBox6 = new System.Windows.Forms.CheckBox();
+			this.referenceComparisonListView = new System.Windows.Forms.ListView();
 			this.tabControl.SuspendLayout();
 			this.referenceTab.SuspendLayout();
 			this.trawlComparisonDataGroupBox.SuspendLayout();
@@ -124,7 +124,8 @@
 			// 
 			// trawlComparisonDataGroupBox
 			// 
-			this.trawlComparisonDataGroupBox.Controls.Add(this.button2);
+			this.trawlComparisonDataGroupBox.Controls.Add(this.referenceComparisonListView);
+			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlReferenceLoadButton);
 			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlReferenceSheetGenerateButton);
 			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlComparisonDataCategoriesCheckBox);
 			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlComparisonDataProductsCheckBox);
@@ -135,18 +136,19 @@
 			this.trawlComparisonDataGroupBox.TabStop = false;
 			this.trawlComparisonDataGroupBox.Text = "Comparison Data";
 			// 
-			// button2
+			// trawlReferenceLoadButton
 			// 
-			this.button2.Location = new System.Drawing.Point(406, 97);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(185, 19);
-			this.button2.TabIndex = 14;
-			this.button2.Text = "Load...";
-			this.button2.UseVisualStyleBackColor = true;
+			this.trawlReferenceLoadButton.Location = new System.Drawing.Point(406, 110);
+			this.trawlReferenceLoadButton.Name = "trawlReferenceLoadButton";
+			this.trawlReferenceLoadButton.Size = new System.Drawing.Size(185, 19);
+			this.trawlReferenceLoadButton.TabIndex = 14;
+			this.trawlReferenceLoadButton.Text = "Load...";
+			this.trawlReferenceLoadButton.UseVisualStyleBackColor = true;
+			this.trawlReferenceLoadButton.Click += new System.EventHandler(this.trawlReferenceLoadButton_Click);
 			// 
 			// trawlReferenceSheetGenerateButton
 			// 
-			this.trawlReferenceSheetGenerateButton.Location = new System.Drawing.Point(406, 122);
+			this.trawlReferenceSheetGenerateButton.Location = new System.Drawing.Point(406, 135);
 			this.trawlReferenceSheetGenerateButton.Name = "trawlReferenceSheetGenerateButton";
 			this.trawlReferenceSheetGenerateButton.Size = new System.Drawing.Size(185, 19);
 			this.trawlReferenceSheetGenerateButton.TabIndex = 13;
@@ -292,19 +294,19 @@
 			// 
 			// groupBox1
 			// 
-			this.groupBox1.Controls.Add(this.checkBox6);
-			this.groupBox1.Controls.Add(this.textBox8);
-			this.groupBox1.Controls.Add(this.textBox7);
-			this.groupBox1.Controls.Add(this.checkBox5);
-			this.groupBox1.Controls.Add(this.textBox6);
-			this.groupBox1.Controls.Add(this.checkBox4);
-			this.groupBox1.Controls.Add(this.textBox5);
-			this.groupBox1.Controls.Add(this.checkBox3);
-			this.groupBox1.Controls.Add(this.textBox4);
-			this.groupBox1.Controls.Add(this.checkBox2);
-			this.groupBox1.Controls.Add(this.textBox3);
-			this.groupBox1.Controls.Add(this.checkBox1);
-			this.groupBox1.Controls.Add(this.button1);
+			this.groupBox1.Controls.Add(this.grabDataDocumentsLabel);
+			this.groupBox1.Controls.Add(this.grabDataDocumentsTextBox);
+			this.groupBox1.Controls.Add(this.grabDataCategoryTextBox);
+			this.groupBox1.Controls.Add(this.grabDataCategoryLabel);
+			this.groupBox1.Controls.Add(this.grabDataAttributesTextBox);
+			this.groupBox1.Controls.Add(this.grabDataAttributesLabel);
+			this.groupBox1.Controls.Add(this.grabDataPictureTextBox);
+			this.groupBox1.Controls.Add(this.grabDataPictureLabel);
+			this.groupBox1.Controls.Add(this.grabDataFullDescriptionTextBox);
+			this.groupBox1.Controls.Add(this.grabDataFullDescriptionLabel);
+			this.groupBox1.Controls.Add(this.grabDataNameTextBox);
+			this.groupBox1.Controls.Add(this.grabDataNameLabel);
+			this.groupBox1.Controls.Add(this.grabDataButton);
 			this.groupBox1.Location = new System.Drawing.Point(6, 152);
 			this.groupBox1.Name = "groupBox1";
 			this.groupBox1.Size = new System.Drawing.Size(597, 149);
@@ -312,99 +314,118 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Data";
 			// 
-			// textBox7
+			// grabDataDocumentsLabel
 			// 
-			this.textBox7.Location = new System.Drawing.Point(154, 113);
-			this.textBox7.Name = "textBox7";
-			this.textBox7.Size = new System.Drawing.Size(142, 20);
-			this.textBox7.TabIndex = 19;
+			this.grabDataDocumentsLabel.AutoSize = true;
+			this.grabDataDocumentsLabel.Location = new System.Drawing.Point(302, 90);
+			this.grabDataDocumentsLabel.Name = "grabDataDocumentsLabel";
+			this.grabDataDocumentsLabel.Size = new System.Drawing.Size(80, 17);
+			this.grabDataDocumentsLabel.TabIndex = 22;
+			this.grabDataDocumentsLabel.Text = "Documents";
+			this.grabDataDocumentsLabel.UseVisualStyleBackColor = true;
 			// 
-			// checkBox5
+			// grabDataDocumentsTextBox
 			// 
-			this.checkBox5.AutoSize = true;
-			this.checkBox5.Location = new System.Drawing.Point(154, 90);
-			this.checkBox5.Name = "checkBox5";
-			this.checkBox5.Size = new System.Drawing.Size(68, 17);
-			this.checkBox5.TabIndex = 18;
-			this.checkBox5.Text = "Category";
-			this.checkBox5.UseVisualStyleBackColor = true;
+			this.grabDataDocumentsTextBox.Location = new System.Drawing.Point(302, 113);
+			this.grabDataDocumentsTextBox.Name = "grabDataDocumentsTextBox";
+			this.grabDataDocumentsTextBox.Size = new System.Drawing.Size(142, 20);
+			this.grabDataDocumentsTextBox.TabIndex = 21;
 			// 
-			// textBox6
+			// grabDataCategoryTextBox
 			// 
-			this.textBox6.Location = new System.Drawing.Point(6, 113);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(142, 20);
-			this.textBox6.TabIndex = 17;
+			this.grabDataCategoryTextBox.Location = new System.Drawing.Point(154, 113);
+			this.grabDataCategoryTextBox.Name = "grabDataCategoryTextBox";
+			this.grabDataCategoryTextBox.Size = new System.Drawing.Size(142, 20);
+			this.grabDataCategoryTextBox.TabIndex = 19;
 			// 
-			// checkBox4
+			// grabDataCategoryLabel
 			// 
-			this.checkBox4.AutoSize = true;
-			this.checkBox4.Location = new System.Drawing.Point(6, 90);
-			this.checkBox4.Name = "checkBox4";
-			this.checkBox4.Size = new System.Drawing.Size(70, 17);
-			this.checkBox4.TabIndex = 16;
-			this.checkBox4.Text = "Attributes";
-			this.checkBox4.UseVisualStyleBackColor = true;
+			this.grabDataCategoryLabel.AutoSize = true;
+			this.grabDataCategoryLabel.Location = new System.Drawing.Point(154, 90);
+			this.grabDataCategoryLabel.Name = "grabDataCategoryLabel";
+			this.grabDataCategoryLabel.Size = new System.Drawing.Size(68, 17);
+			this.grabDataCategoryLabel.TabIndex = 18;
+			this.grabDataCategoryLabel.Text = "Category";
+			this.grabDataCategoryLabel.UseVisualStyleBackColor = true;
 			// 
-			// textBox5
+			// grabDataAttributesTextBox
 			// 
-			this.textBox5.Location = new System.Drawing.Point(302, 52);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(142, 20);
-			this.textBox5.TabIndex = 15;
+			this.grabDataAttributesTextBox.Location = new System.Drawing.Point(6, 113);
+			this.grabDataAttributesTextBox.Name = "grabDataAttributesTextBox";
+			this.grabDataAttributesTextBox.Size = new System.Drawing.Size(142, 20);
+			this.grabDataAttributesTextBox.TabIndex = 17;
 			// 
-			// checkBox3
+			// grabDataAttributesLabel
 			// 
-			this.checkBox3.AutoSize = true;
-			this.checkBox3.Location = new System.Drawing.Point(302, 29);
-			this.checkBox3.Name = "checkBox3";
-			this.checkBox3.Size = new System.Drawing.Size(59, 17);
-			this.checkBox3.TabIndex = 14;
-			this.checkBox3.Text = "Picture";
-			this.checkBox3.UseVisualStyleBackColor = true;
+			this.grabDataAttributesLabel.AutoSize = true;
+			this.grabDataAttributesLabel.Location = new System.Drawing.Point(6, 90);
+			this.grabDataAttributesLabel.Name = "grabDataAttributesLabel";
+			this.grabDataAttributesLabel.Size = new System.Drawing.Size(70, 17);
+			this.grabDataAttributesLabel.TabIndex = 16;
+			this.grabDataAttributesLabel.Text = "Attributes";
+			this.grabDataAttributesLabel.UseVisualStyleBackColor = true;
 			// 
-			// textBox4
+			// grabDataPictureTextBox
 			// 
-			this.textBox4.Location = new System.Drawing.Point(154, 52);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(142, 20);
-			this.textBox4.TabIndex = 13;
+			this.grabDataPictureTextBox.Location = new System.Drawing.Point(302, 52);
+			this.grabDataPictureTextBox.Name = "grabDataPictureTextBox";
+			this.grabDataPictureTextBox.Size = new System.Drawing.Size(142, 20);
+			this.grabDataPictureTextBox.TabIndex = 15;
 			// 
-			// checkBox2
+			// grabDataPictureLabel
 			// 
-			this.checkBox2.AutoSize = true;
-			this.checkBox2.Location = new System.Drawing.Point(154, 29);
-			this.checkBox2.Name = "checkBox2";
-			this.checkBox2.Size = new System.Drawing.Size(98, 17);
-			this.checkBox2.TabIndex = 12;
-			this.checkBox2.Text = "Full Description";
-			this.checkBox2.UseVisualStyleBackColor = true;
+			this.grabDataPictureLabel.AutoSize = true;
+			this.grabDataPictureLabel.Location = new System.Drawing.Point(302, 29);
+			this.grabDataPictureLabel.Name = "grabDataPictureLabel";
+			this.grabDataPictureLabel.Size = new System.Drawing.Size(59, 17);
+			this.grabDataPictureLabel.TabIndex = 14;
+			this.grabDataPictureLabel.Text = "Picture";
+			this.grabDataPictureLabel.UseVisualStyleBackColor = true;
 			// 
-			// textBox3
+			// grabDataFullDescriptionTextBox
 			// 
-			this.textBox3.Location = new System.Drawing.Point(6, 52);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(142, 20);
-			this.textBox3.TabIndex = 11;
+			this.grabDataFullDescriptionTextBox.Location = new System.Drawing.Point(154, 52);
+			this.grabDataFullDescriptionTextBox.Name = "grabDataFullDescriptionTextBox";
+			this.grabDataFullDescriptionTextBox.Size = new System.Drawing.Size(142, 20);
+			this.grabDataFullDescriptionTextBox.TabIndex = 13;
 			// 
-			// checkBox1
+			// grabDataFullDescriptionLabel
 			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Location = new System.Drawing.Point(6, 29);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(54, 17);
-			this.checkBox1.TabIndex = 5;
-			this.checkBox1.Text = "Name";
-			this.checkBox1.UseVisualStyleBackColor = true;
+			this.grabDataFullDescriptionLabel.AutoSize = true;
+			this.grabDataFullDescriptionLabel.Location = new System.Drawing.Point(154, 29);
+			this.grabDataFullDescriptionLabel.Name = "grabDataFullDescriptionLabel";
+			this.grabDataFullDescriptionLabel.Size = new System.Drawing.Size(98, 17);
+			this.grabDataFullDescriptionLabel.TabIndex = 12;
+			this.grabDataFullDescriptionLabel.Text = "Full Description";
+			this.grabDataFullDescriptionLabel.UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// grabDataNameTextBox
 			// 
-			this.button1.Location = new System.Drawing.Point(449, 113);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(142, 20);
-			this.button1.TabIndex = 4;
-			this.button1.Text = "Commence";
-			this.button1.UseVisualStyleBackColor = true;
+			this.grabDataNameTextBox.Location = new System.Drawing.Point(6, 52);
+			this.grabDataNameTextBox.Name = "grabDataNameTextBox";
+			this.grabDataNameTextBox.Size = new System.Drawing.Size(142, 20);
+			this.grabDataNameTextBox.TabIndex = 11;
+			this.grabDataNameTextBox.Text = "div.productdetail_info div.productdetail_info_right h1";
+			// 
+			// grabDataNameLabel
+			// 
+			this.grabDataNameLabel.AutoSize = true;
+			this.grabDataNameLabel.Location = new System.Drawing.Point(6, 29);
+			this.grabDataNameLabel.Name = "grabDataNameLabel";
+			this.grabDataNameLabel.Size = new System.Drawing.Size(54, 17);
+			this.grabDataNameLabel.TabIndex = 5;
+			this.grabDataNameLabel.Text = "Name";
+			this.grabDataNameLabel.UseVisualStyleBackColor = true;
+			// 
+			// grabDataButton
+			// 
+			this.grabDataButton.Location = new System.Drawing.Point(449, 113);
+			this.grabDataButton.Name = "grabDataButton";
+			this.grabDataButton.Size = new System.Drawing.Size(142, 20);
+			this.grabDataButton.TabIndex = 4;
+			this.grabDataButton.Text = "Commence";
+			this.grabDataButton.UseVisualStyleBackColor = true;
+			this.grabDataButton.Click += new System.EventHandler(this.Grab_Commence);
 			// 
 			// crawlSiteGroupBox
 			// 
@@ -525,26 +546,13 @@
 			this.trawlConsoleTextBox.TabIndex = 9;
 			this.trawlConsoleTextBox.Text = "";
 			// 
-			// openFileDialog1
+			// referenceComparisonListView
 			// 
-			this.openFileDialog1.FileName = "openFileDialog1";
-			// 
-			// textBox8
-			// 
-			this.textBox8.Location = new System.Drawing.Point(302, 113);
-			this.textBox8.Name = "textBox8";
-			this.textBox8.Size = new System.Drawing.Size(142, 20);
-			this.textBox8.TabIndex = 21;
-			// 
-			// checkBox6
-			// 
-			this.checkBox6.AutoSize = true;
-			this.checkBox6.Location = new System.Drawing.Point(302, 90);
-			this.checkBox6.Name = "checkBox6";
-			this.checkBox6.Size = new System.Drawing.Size(80, 17);
-			this.checkBox6.TabIndex = 22;
-			this.checkBox6.Text = "Documents";
-			this.checkBox6.UseVisualStyleBackColor = true;
+			this.referenceComparisonListView.Location = new System.Drawing.Point(6, 19);
+			this.referenceComparisonListView.Name = "referenceComparisonListView";
+			this.referenceComparisonListView.Size = new System.Drawing.Size(394, 135);
+			this.referenceComparisonListView.TabIndex = 15;
+			this.referenceComparisonListView.UseCompatibleStateImageBehavior = false;
 			// 
 			// MainForm
 			// 
@@ -601,27 +609,27 @@
 		private System.Windows.Forms.Button trawlConsoleClearButton;
 		private System.Windows.Forms.RichTextBox trawlConsoleTextBox;
 		private System.Windows.Forms.GroupBox groupBox1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button grabDataButton;
 		private System.Windows.Forms.RadioButton radioButton2;
 		private System.Windows.Forms.RadioButton radioButton1;
 		private System.Windows.Forms.TextBox textBox2;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.OpenFileDialog openFileDialog1;
-		private System.Windows.Forms.TextBox textBox7;
-		private System.Windows.Forms.CheckBox checkBox5;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.CheckBox checkBox4;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.CheckBox checkBox3;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.CheckBox checkBox2;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.CheckBox checkBox1;
-		private System.Windows.Forms.CheckBox checkBox6;
-		private System.Windows.Forms.TextBox textBox8;
+		private System.Windows.Forms.Button trawlReferenceLoadButton;
+		private System.Windows.Forms.TextBox grabDataCategoryTextBox;
+		private System.Windows.Forms.CheckBox grabDataCategoryLabel;
+		private System.Windows.Forms.TextBox grabDataAttributesTextBox;
+		private System.Windows.Forms.CheckBox grabDataAttributesLabel;
+		private System.Windows.Forms.TextBox grabDataPictureTextBox;
+		private System.Windows.Forms.CheckBox grabDataPictureLabel;
+		private System.Windows.Forms.TextBox grabDataFullDescriptionTextBox;
+		private System.Windows.Forms.CheckBox grabDataFullDescriptionLabel;
+		private System.Windows.Forms.TextBox grabDataNameTextBox;
+		private System.Windows.Forms.CheckBox grabDataNameLabel;
+		private System.Windows.Forms.CheckBox grabDataDocumentsLabel;
+		private System.Windows.Forms.TextBox grabDataDocumentsTextBox;
+		private System.Windows.Forms.ListView referenceComparisonListView;
 	}
 }
 

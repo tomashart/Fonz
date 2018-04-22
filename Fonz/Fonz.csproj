@@ -341,6 +341,7 @@
     <Compile Include="Controllers\Trawl\ITrawlController.cs" />
     <Compile Include="Controllers\Trawl\TrawlController.cs" />
     <Compile Include="DependencyConfig.cs" />
+    <Compile Include="Models\XmlProduct.cs" />
     <Compile Include="Presentation\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

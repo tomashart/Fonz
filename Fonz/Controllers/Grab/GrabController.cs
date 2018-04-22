@@ -4,15 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AngleSharp;
+using Fonz.Models;
 
 namespace Fonz.Controllers.Grab
 {
 	static class GrabController
 	{
-		//static GrabController() { }
-
 		public static async void Grab(string[] addresses, string[] selectors)
 		{
+			var result = new List<XmlProduct>();
+
 			var config = Configuration.Default.WithDefaultLoader();
 
 			foreach (var address in addresses)

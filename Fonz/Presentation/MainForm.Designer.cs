@@ -31,25 +31,27 @@
 			this.progressBar = new System.Windows.Forms.ProgressBar();
 			this.tabControl = new System.Windows.Forms.TabControl();
 			this.referenceTab = new System.Windows.Forms.TabPage();
-			this.trawlComparisonDataGroupBox = new System.Windows.Forms.GroupBox();
-			this.trawlReferenceLoadButton = new System.Windows.Forms.Button();
-			this.trawlReferenceSheetGenerateButton = new System.Windows.Forms.Button();
-			this.trawlComparisonDataCategoriesCheckBox = new System.Windows.Forms.CheckBox();
-			this.trawlComparisonDataProductsCheckBox = new System.Windows.Forms.CheckBox();
-			this.trawlConnectionStringPortTextBox = new System.Windows.Forms.TextBox();
-			this.trawlConnectionStringPortLabel = new System.Windows.Forms.Label();
-			this.trawlConnectionStringAddressTextBox = new System.Windows.Forms.TextBox();
-			this.trawlConnectionStringAddressLabel = new System.Windows.Forms.Label();
-			this.trawlConnectionStringPasswordTextBox = new System.Windows.Forms.TextBox();
-			this.trawlConnectionStringVerifyButton = new System.Windows.Forms.Button();
-			this.trawlConnectionStringUserTextBox = new System.Windows.Forms.TextBox();
-			this.trawlConnectionStringGroupBox = new System.Windows.Forms.GroupBox();
-			this.trawlConnectionStringDatabaseTextBox = new System.Windows.Forms.TextBox();
-			this.trawlConnectionStringDatabaseLabel = new System.Windows.Forms.Label();
-			this.trawlConnectionStringPasswordLabel = new System.Windows.Forms.Label();
-			this.trawlConnectionStringUserLabel = new System.Windows.Forms.Label();
+			this.referenceComparisonDataGroupBox = new System.Windows.Forms.GroupBox();
+			this.referenceComparisonDataGridView = new System.Windows.Forms.DataGridView();
+			this.referenceComparisonDataSKURadio = new System.Windows.Forms.RadioButton();
+			this.referenceComparisonDataProductIdRadio = new System.Windows.Forms.RadioButton();
+			this.referenceComparisonDataHeaderCheckBox = new System.Windows.Forms.CheckBox();
+			this.referenceComparisonDataLoadButton = new System.Windows.Forms.Button();
+			this.referenceComparisonDataSheetGenerateButton = new System.Windows.Forms.Button();
+			this.referenceConnectionStringPortTextBox = new System.Windows.Forms.TextBox();
+			this.referenceConnectionStringPortLabel = new System.Windows.Forms.Label();
+			this.referenceConnectionStringAddressTextBox = new System.Windows.Forms.TextBox();
+			this.referenceConnectionStringAddressLabel = new System.Windows.Forms.Label();
+			this.referenceConnectionStringPasswordTextBox = new System.Windows.Forms.TextBox();
+			this.referenceConnectionStringVerifyButton = new System.Windows.Forms.Button();
+			this.referenceConnectionStringUserTextBox = new System.Windows.Forms.TextBox();
+			this.referenceConnectionStringGroupBox = new System.Windows.Forms.GroupBox();
+			this.referenceConnectionStringDatabaseTextBox = new System.Windows.Forms.TextBox();
+			this.referenceConnectionStringDatabaseLabel = new System.Windows.Forms.Label();
+			this.referenceConnectionStringPasswordLabel = new System.Windows.Forms.Label();
+			this.referenceConnectionStringUserLabel = new System.Windows.Forms.Label();
 			this.grabTab = new System.Windows.Forms.TabPage();
-			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.grabDataGroupBox = new System.Windows.Forms.GroupBox();
 			this.grabDataDocumentsLabel = new System.Windows.Forms.CheckBox();
 			this.grabDataDocumentsTextBox = new System.Windows.Forms.TextBox();
 			this.grabDataCategoryTextBox = new System.Windows.Forms.TextBox();
@@ -63,27 +65,27 @@
 			this.grabDataNameTextBox = new System.Windows.Forms.TextBox();
 			this.grabDataNameLabel = new System.Windows.Forms.CheckBox();
 			this.grabDataButton = new System.Windows.Forms.Button();
-			this.crawlSiteGroupBox = new System.Windows.Forms.GroupBox();
+			this.grabSiteGroupBox = new System.Windows.Forms.GroupBox();
 			this.radioButton2 = new System.Windows.Forms.RadioButton();
 			this.radioButton1 = new System.Windows.Forms.RadioButton();
 			this.textBox2 = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.crawlSiteTextBox = new System.Windows.Forms.TextBox();
-			this.crawlSiteHostnameLabel = new System.Windows.Forms.Label();
-			this.trawlConsoleGroupBox = new System.Windows.Forms.GroupBox();
-			this.trawlConsoleClearButton = new System.Windows.Forms.Button();
-			this.trawlConsoleTextBox = new System.Windows.Forms.RichTextBox();
-			this.referenceComparisonListView = new System.Windows.Forms.ListView();
+			this.grabSiteTextBox = new System.Windows.Forms.TextBox();
+			this.grabSiteHostnameLabel = new System.Windows.Forms.Label();
+			this.consoleGroupBox = new System.Windows.Forms.GroupBox();
+			this.consoleClearButton = new System.Windows.Forms.Button();
+			this.consoleTextBox = new System.Windows.Forms.RichTextBox();
 			this.tabControl.SuspendLayout();
 			this.referenceTab.SuspendLayout();
-			this.trawlComparisonDataGroupBox.SuspendLayout();
-			this.trawlConnectionStringGroupBox.SuspendLayout();
+			this.referenceComparisonDataGroupBox.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.referenceComparisonDataGridView)).BeginInit();
+			this.referenceConnectionStringGroupBox.SuspendLayout();
 			this.grabTab.SuspendLayout();
-			this.groupBox1.SuspendLayout();
-			this.crawlSiteGroupBox.SuspendLayout();
-			this.trawlConsoleGroupBox.SuspendLayout();
+			this.grabDataGroupBox.SuspendLayout();
+			this.grabSiteGroupBox.SuspendLayout();
+			this.consoleGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// progressBar
@@ -105,15 +107,15 @@
 			// 
 			// referenceTab
 			// 
-			this.referenceTab.Controls.Add(this.trawlComparisonDataGroupBox);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringPortTextBox);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringPortLabel);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringAddressTextBox);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringAddressLabel);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringPasswordTextBox);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringVerifyButton);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringUserTextBox);
-			this.referenceTab.Controls.Add(this.trawlConnectionStringGroupBox);
+			this.referenceTab.Controls.Add(this.referenceComparisonDataGroupBox);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringPortTextBox);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringPortLabel);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringAddressTextBox);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringAddressLabel);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringPasswordTextBox);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringVerifyButton);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringUserTextBox);
+			this.referenceTab.Controls.Add(this.referenceConnectionStringGroupBox);
 			this.referenceTab.Location = new System.Drawing.Point(4, 22);
 			this.referenceTab.Name = "referenceTab";
 			this.referenceTab.Padding = new System.Windows.Forms.Padding(3);
@@ -122,168 +124,192 @@
 			this.referenceTab.Text = "Reference";
 			this.referenceTab.UseVisualStyleBackColor = true;
 			// 
-			// trawlComparisonDataGroupBox
+			// referenceComparisonDataGroupBox
 			// 
-			this.trawlComparisonDataGroupBox.Controls.Add(this.referenceComparisonListView);
-			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlReferenceLoadButton);
-			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlReferenceSheetGenerateButton);
-			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlComparisonDataCategoriesCheckBox);
-			this.trawlComparisonDataGroupBox.Controls.Add(this.trawlComparisonDataProductsCheckBox);
-			this.trawlComparisonDataGroupBox.Location = new System.Drawing.Point(6, 140);
-			this.trawlComparisonDataGroupBox.Name = "trawlComparisonDataGroupBox";
-			this.trawlComparisonDataGroupBox.Size = new System.Drawing.Size(597, 160);
-			this.trawlComparisonDataGroupBox.TabIndex = 12;
-			this.trawlComparisonDataGroupBox.TabStop = false;
-			this.trawlComparisonDataGroupBox.Text = "Comparison Data";
+			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataGridView);
+			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataSKURadio);
+			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataProductIdRadio);
+			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataHeaderCheckBox);
+			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataLoadButton);
+			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataSheetGenerateButton);
+			this.referenceComparisonDataGroupBox.Location = new System.Drawing.Point(6, 140);
+			this.referenceComparisonDataGroupBox.Name = "referenceComparisonDataGroupBox";
+			this.referenceComparisonDataGroupBox.Size = new System.Drawing.Size(597, 160);
+			this.referenceComparisonDataGroupBox.TabIndex = 12;
+			this.referenceComparisonDataGroupBox.TabStop = false;
+			this.referenceComparisonDataGroupBox.Text = "Comparison Data";
 			// 
-			// trawlReferenceLoadButton
+			// referenceComparisonDataGridView
 			// 
-			this.trawlReferenceLoadButton.Location = new System.Drawing.Point(406, 110);
-			this.trawlReferenceLoadButton.Name = "trawlReferenceLoadButton";
-			this.trawlReferenceLoadButton.Size = new System.Drawing.Size(185, 19);
-			this.trawlReferenceLoadButton.TabIndex = 14;
-			this.trawlReferenceLoadButton.Text = "Load...";
-			this.trawlReferenceLoadButton.UseVisualStyleBackColor = true;
-			this.trawlReferenceLoadButton.Click += new System.EventHandler(this.trawlReferenceLoadButton_Click);
+			this.referenceComparisonDataGridView.AllowUserToAddRows = false;
+			this.referenceComparisonDataGridView.AllowUserToDeleteRows = false;
+			this.referenceComparisonDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.referenceComparisonDataGridView.Location = new System.Drawing.Point(6, 19);
+			this.referenceComparisonDataGridView.Name = "referenceComparisonDataGridView";
+			this.referenceComparisonDataGridView.ReadOnly = true;
+			this.referenceComparisonDataGridView.Size = new System.Drawing.Size(394, 135);
+			this.referenceComparisonDataGridView.TabIndex = 16;
 			// 
-			// trawlReferenceSheetGenerateButton
+			// referenceComparisonDataSKURadio
 			// 
-			this.trawlReferenceSheetGenerateButton.Location = new System.Drawing.Point(406, 135);
-			this.trawlReferenceSheetGenerateButton.Name = "trawlReferenceSheetGenerateButton";
-			this.trawlReferenceSheetGenerateButton.Size = new System.Drawing.Size(185, 19);
-			this.trawlReferenceSheetGenerateButton.TabIndex = 13;
-			this.trawlReferenceSheetGenerateButton.Text = "Generate";
-			this.trawlReferenceSheetGenerateButton.UseVisualStyleBackColor = true;
-			this.trawlReferenceSheetGenerateButton.Click += new System.EventHandler(this.Trawl_Generate_Click);
+			this.referenceComparisonDataSKURadio.AutoSize = true;
+			this.referenceComparisonDataSKURadio.Checked = true;
+			this.referenceComparisonDataSKURadio.Location = new System.Drawing.Point(406, 42);
+			this.referenceComparisonDataSKURadio.Name = "referenceComparisonDataSKURadio";
+			this.referenceComparisonDataSKURadio.Size = new System.Drawing.Size(47, 17);
+			this.referenceComparisonDataSKURadio.TabIndex = 18;
+			this.referenceComparisonDataSKURadio.TabStop = true;
+			this.referenceComparisonDataSKURadio.Text = "SKU";
+			this.referenceComparisonDataSKURadio.UseVisualStyleBackColor = true;
 			// 
-			// trawlComparisonDataCategoriesCheckBox
+			// referenceComparisonDataProductIdRadio
 			// 
-			this.trawlComparisonDataCategoriesCheckBox.AutoSize = true;
-			this.trawlComparisonDataCategoriesCheckBox.Location = new System.Drawing.Point(515, 19);
-			this.trawlComparisonDataCategoriesCheckBox.Name = "trawlComparisonDataCategoriesCheckBox";
-			this.trawlComparisonDataCategoriesCheckBox.Size = new System.Drawing.Size(76, 17);
-			this.trawlComparisonDataCategoriesCheckBox.TabIndex = 4;
-			this.trawlComparisonDataCategoriesCheckBox.Text = "Categories";
-			this.trawlComparisonDataCategoriesCheckBox.UseVisualStyleBackColor = true;
+			this.referenceComparisonDataProductIdRadio.AutoSize = true;
+			this.referenceComparisonDataProductIdRadio.Location = new System.Drawing.Point(406, 19);
+			this.referenceComparisonDataProductIdRadio.Name = "referenceComparisonDataProductIdRadio";
+			this.referenceComparisonDataProductIdRadio.Size = new System.Drawing.Size(71, 17);
+			this.referenceComparisonDataProductIdRadio.TabIndex = 17;
+			this.referenceComparisonDataProductIdRadio.Text = "ProductId";
+			this.referenceComparisonDataProductIdRadio.UseVisualStyleBackColor = true;
 			// 
-			// trawlComparisonDataProductsCheckBox
+			// referenceComparisonDataHeaderCheckBox
 			// 
-			this.trawlComparisonDataProductsCheckBox.AutoSize = true;
-			this.trawlComparisonDataProductsCheckBox.Location = new System.Drawing.Point(406, 19);
-			this.trawlComparisonDataProductsCheckBox.Name = "trawlComparisonDataProductsCheckBox";
-			this.trawlComparisonDataProductsCheckBox.Size = new System.Drawing.Size(68, 17);
-			this.trawlComparisonDataProductsCheckBox.TabIndex = 0;
-			this.trawlComparisonDataProductsCheckBox.Text = "Products";
-			this.trawlComparisonDataProductsCheckBox.UseVisualStyleBackColor = true;
+			this.referenceComparisonDataHeaderCheckBox.AutoSize = true;
+			this.referenceComparisonDataHeaderCheckBox.Location = new System.Drawing.Point(406, 87);
+			this.referenceComparisonDataHeaderCheckBox.Name = "referenceComparisonDataHeaderCheckBox";
+			this.referenceComparisonDataHeaderCheckBox.Size = new System.Drawing.Size(111, 17);
+			this.referenceComparisonDataHeaderCheckBox.TabIndex = 16;
+			this.referenceComparisonDataHeaderCheckBox.Text = "First row is header";
+			this.referenceComparisonDataHeaderCheckBox.UseVisualStyleBackColor = true;
 			// 
-			// trawlConnectionStringPortTextBox
+			// referenceComparisonDataLoadButton
 			// 
-			this.trawlConnectionStringPortTextBox.Location = new System.Drawing.Point(209, 99);
-			this.trawlConnectionStringPortTextBox.Name = "trawlConnectionStringPortTextBox";
-			this.trawlConnectionStringPortTextBox.Size = new System.Drawing.Size(197, 20);
-			this.trawlConnectionStringPortTextBox.TabIndex = 8;
-			this.trawlConnectionStringPortTextBox.Text = "3306";
+			this.referenceComparisonDataLoadButton.Location = new System.Drawing.Point(406, 110);
+			this.referenceComparisonDataLoadButton.Name = "referenceComparisonDataLoadButton";
+			this.referenceComparisonDataLoadButton.Size = new System.Drawing.Size(185, 19);
+			this.referenceComparisonDataLoadButton.TabIndex = 14;
+			this.referenceComparisonDataLoadButton.Text = "Load...";
+			this.referenceComparisonDataLoadButton.UseVisualStyleBackColor = true;
+			this.referenceComparisonDataLoadButton.Click += new System.EventHandler(this.Reference_ComparisonData_Load);
 			// 
-			// trawlConnectionStringPortLabel
+			// referenceComparisonDataSheetGenerateButton
 			// 
-			this.trawlConnectionStringPortLabel.AutoSize = true;
-			this.trawlConnectionStringPortLabel.Location = new System.Drawing.Point(212, 83);
-			this.trawlConnectionStringPortLabel.Name = "trawlConnectionStringPortLabel";
-			this.trawlConnectionStringPortLabel.Size = new System.Drawing.Size(26, 13);
-			this.trawlConnectionStringPortLabel.TabIndex = 7;
-			this.trawlConnectionStringPortLabel.Text = "Port";
+			this.referenceComparisonDataSheetGenerateButton.Location = new System.Drawing.Point(406, 135);
+			this.referenceComparisonDataSheetGenerateButton.Name = "referenceComparisonDataSheetGenerateButton";
+			this.referenceComparisonDataSheetGenerateButton.Size = new System.Drawing.Size(185, 19);
+			this.referenceComparisonDataSheetGenerateButton.TabIndex = 13;
+			this.referenceComparisonDataSheetGenerateButton.Text = "Generate";
+			this.referenceComparisonDataSheetGenerateButton.UseVisualStyleBackColor = true;
+			this.referenceComparisonDataSheetGenerateButton.Click += new System.EventHandler(this.Reference_ComparisonData_Generate);
 			// 
-			// trawlConnectionStringAddressTextBox
+			// referenceConnectionStringPortTextBox
 			// 
-			this.trawlConnectionStringAddressTextBox.Location = new System.Drawing.Point(12, 99);
-			this.trawlConnectionStringAddressTextBox.Name = "trawlConnectionStringAddressTextBox";
-			this.trawlConnectionStringAddressTextBox.Size = new System.Drawing.Size(191, 20);
-			this.trawlConnectionStringAddressTextBox.TabIndex = 6;
+			this.referenceConnectionStringPortTextBox.Location = new System.Drawing.Point(209, 99);
+			this.referenceConnectionStringPortTextBox.Name = "referenceConnectionStringPortTextBox";
+			this.referenceConnectionStringPortTextBox.Size = new System.Drawing.Size(197, 20);
+			this.referenceConnectionStringPortTextBox.TabIndex = 8;
+			this.referenceConnectionStringPortTextBox.Text = "3306";
 			// 
-			// trawlConnectionStringAddressLabel
+			// referenceConnectionStringPortLabel
 			// 
-			this.trawlConnectionStringAddressLabel.AutoSize = true;
-			this.trawlConnectionStringAddressLabel.Location = new System.Drawing.Point(15, 83);
-			this.trawlConnectionStringAddressLabel.Name = "trawlConnectionStringAddressLabel";
-			this.trawlConnectionStringAddressLabel.Size = new System.Drawing.Size(45, 13);
-			this.trawlConnectionStringAddressLabel.TabIndex = 5;
-			this.trawlConnectionStringAddressLabel.Text = "Address";
+			this.referenceConnectionStringPortLabel.AutoSize = true;
+			this.referenceConnectionStringPortLabel.Location = new System.Drawing.Point(212, 83);
+			this.referenceConnectionStringPortLabel.Name = "referenceConnectionStringPortLabel";
+			this.referenceConnectionStringPortLabel.Size = new System.Drawing.Size(26, 13);
+			this.referenceConnectionStringPortLabel.TabIndex = 7;
+			this.referenceConnectionStringPortLabel.Text = "Port";
 			// 
-			// trawlConnectionStringPasswordTextBox
+			// referenceConnectionStringAddressTextBox
 			// 
-			this.trawlConnectionStringPasswordTextBox.Location = new System.Drawing.Point(209, 56);
-			this.trawlConnectionStringPasswordTextBox.Name = "trawlConnectionStringPasswordTextBox";
-			this.trawlConnectionStringPasswordTextBox.Size = new System.Drawing.Size(197, 20);
-			this.trawlConnectionStringPasswordTextBox.TabIndex = 4;
+			this.referenceConnectionStringAddressTextBox.Location = new System.Drawing.Point(12, 99);
+			this.referenceConnectionStringAddressTextBox.Name = "referenceConnectionStringAddressTextBox";
+			this.referenceConnectionStringAddressTextBox.Size = new System.Drawing.Size(191, 20);
+			this.referenceConnectionStringAddressTextBox.TabIndex = 6;
 			// 
-			// trawlConnectionStringVerifyButton
+			// referenceConnectionStringAddressLabel
 			// 
-			this.trawlConnectionStringVerifyButton.Location = new System.Drawing.Point(412, 99);
-			this.trawlConnectionStringVerifyButton.Name = "trawlConnectionStringVerifyButton";
-			this.trawlConnectionStringVerifyButton.Size = new System.Drawing.Size(185, 20);
-			this.trawlConnectionStringVerifyButton.TabIndex = 2;
-			this.trawlConnectionStringVerifyButton.Text = "Verify";
-			this.trawlConnectionStringVerifyButton.UseVisualStyleBackColor = true;
-			this.trawlConnectionStringVerifyButton.Click += new System.EventHandler(this.Verify_Click);
+			this.referenceConnectionStringAddressLabel.AutoSize = true;
+			this.referenceConnectionStringAddressLabel.Location = new System.Drawing.Point(15, 83);
+			this.referenceConnectionStringAddressLabel.Name = "referenceConnectionStringAddressLabel";
+			this.referenceConnectionStringAddressLabel.Size = new System.Drawing.Size(45, 13);
+			this.referenceConnectionStringAddressLabel.TabIndex = 5;
+			this.referenceConnectionStringAddressLabel.Text = "Address";
 			// 
-			// trawlConnectionStringUserTextBox
+			// referenceConnectionStringPasswordTextBox
 			// 
-			this.trawlConnectionStringUserTextBox.Location = new System.Drawing.Point(12, 56);
-			this.trawlConnectionStringUserTextBox.Name = "trawlConnectionStringUserTextBox";
-			this.trawlConnectionStringUserTextBox.Size = new System.Drawing.Size(191, 20);
-			this.trawlConnectionStringUserTextBox.TabIndex = 1;
+			this.referenceConnectionStringPasswordTextBox.Location = new System.Drawing.Point(209, 56);
+			this.referenceConnectionStringPasswordTextBox.Name = "referenceConnectionStringPasswordTextBox";
+			this.referenceConnectionStringPasswordTextBox.Size = new System.Drawing.Size(197, 20);
+			this.referenceConnectionStringPasswordTextBox.TabIndex = 4;
 			// 
-			// trawlConnectionStringGroupBox
+			// referenceConnectionStringVerifyButton
 			// 
-			this.trawlConnectionStringGroupBox.Controls.Add(this.trawlConnectionStringDatabaseTextBox);
-			this.trawlConnectionStringGroupBox.Controls.Add(this.trawlConnectionStringDatabaseLabel);
-			this.trawlConnectionStringGroupBox.Controls.Add(this.trawlConnectionStringPasswordLabel);
-			this.trawlConnectionStringGroupBox.Controls.Add(this.trawlConnectionStringUserLabel);
-			this.trawlConnectionStringGroupBox.Location = new System.Drawing.Point(6, 6);
-			this.trawlConnectionStringGroupBox.Name = "trawlConnectionStringGroupBox";
-			this.trawlConnectionStringGroupBox.Size = new System.Drawing.Size(597, 128);
-			this.trawlConnectionStringGroupBox.TabIndex = 11;
-			this.trawlConnectionStringGroupBox.TabStop = false;
-			this.trawlConnectionStringGroupBox.Text = "Connection String";
+			this.referenceConnectionStringVerifyButton.Location = new System.Drawing.Point(412, 99);
+			this.referenceConnectionStringVerifyButton.Name = "referenceConnectionStringVerifyButton";
+			this.referenceConnectionStringVerifyButton.Size = new System.Drawing.Size(185, 20);
+			this.referenceConnectionStringVerifyButton.TabIndex = 2;
+			this.referenceConnectionStringVerifyButton.Text = "Verify";
+			this.referenceConnectionStringVerifyButton.UseVisualStyleBackColor = true;
+			this.referenceConnectionStringVerifyButton.Click += new System.EventHandler(this.Reference_ConnectionString_Verify);
 			// 
-			// trawlConnectionStringDatabaseTextBox
+			// referenceConnectionStringUserTextBox
 			// 
-			this.trawlConnectionStringDatabaseTextBox.Location = new System.Drawing.Point(406, 50);
-			this.trawlConnectionStringDatabaseTextBox.Name = "trawlConnectionStringDatabaseTextBox";
-			this.trawlConnectionStringDatabaseTextBox.Size = new System.Drawing.Size(185, 20);
-			this.trawlConnectionStringDatabaseTextBox.TabIndex = 16;
+			this.referenceConnectionStringUserTextBox.Location = new System.Drawing.Point(12, 56);
+			this.referenceConnectionStringUserTextBox.Name = "referenceConnectionStringUserTextBox";
+			this.referenceConnectionStringUserTextBox.Size = new System.Drawing.Size(191, 20);
+			this.referenceConnectionStringUserTextBox.TabIndex = 1;
 			// 
-			// trawlConnectionStringDatabaseLabel
+			// referenceConnectionStringGroupBox
 			// 
-			this.trawlConnectionStringDatabaseLabel.AutoSize = true;
-			this.trawlConnectionStringDatabaseLabel.Location = new System.Drawing.Point(409, 34);
-			this.trawlConnectionStringDatabaseLabel.Name = "trawlConnectionStringDatabaseLabel";
-			this.trawlConnectionStringDatabaseLabel.Size = new System.Drawing.Size(53, 13);
-			this.trawlConnectionStringDatabaseLabel.TabIndex = 15;
-			this.trawlConnectionStringDatabaseLabel.Text = "Database";
+			this.referenceConnectionStringGroupBox.Controls.Add(this.referenceConnectionStringDatabaseTextBox);
+			this.referenceConnectionStringGroupBox.Controls.Add(this.referenceConnectionStringDatabaseLabel);
+			this.referenceConnectionStringGroupBox.Controls.Add(this.referenceConnectionStringPasswordLabel);
+			this.referenceConnectionStringGroupBox.Controls.Add(this.referenceConnectionStringUserLabel);
+			this.referenceConnectionStringGroupBox.Location = new System.Drawing.Point(6, 6);
+			this.referenceConnectionStringGroupBox.Name = "referenceConnectionStringGroupBox";
+			this.referenceConnectionStringGroupBox.Size = new System.Drawing.Size(597, 128);
+			this.referenceConnectionStringGroupBox.TabIndex = 11;
+			this.referenceConnectionStringGroupBox.TabStop = false;
+			this.referenceConnectionStringGroupBox.Text = "Connection String";
 			// 
-			// trawlConnectionStringPasswordLabel
+			// referenceConnectionStringDatabaseTextBox
 			// 
-			this.trawlConnectionStringPasswordLabel.AutoSize = true;
-			this.trawlConnectionStringPasswordLabel.Location = new System.Drawing.Point(206, 34);
-			this.trawlConnectionStringPasswordLabel.Name = "trawlConnectionStringPasswordLabel";
-			this.trawlConnectionStringPasswordLabel.Size = new System.Drawing.Size(53, 13);
-			this.trawlConnectionStringPasswordLabel.TabIndex = 3;
-			this.trawlConnectionStringPasswordLabel.Text = "Password";
+			this.referenceConnectionStringDatabaseTextBox.Location = new System.Drawing.Point(406, 50);
+			this.referenceConnectionStringDatabaseTextBox.Name = "referenceConnectionStringDatabaseTextBox";
+			this.referenceConnectionStringDatabaseTextBox.Size = new System.Drawing.Size(185, 20);
+			this.referenceConnectionStringDatabaseTextBox.TabIndex = 16;
 			// 
-			// trawlConnectionStringUserLabel
+			// referenceConnectionStringDatabaseLabel
 			// 
-			this.trawlConnectionStringUserLabel.AutoSize = true;
-			this.trawlConnectionStringUserLabel.Location = new System.Drawing.Point(9, 34);
-			this.trawlConnectionStringUserLabel.Name = "trawlConnectionStringUserLabel";
-			this.trawlConnectionStringUserLabel.Size = new System.Drawing.Size(29, 13);
-			this.trawlConnectionStringUserLabel.TabIndex = 0;
-			this.trawlConnectionStringUserLabel.Text = "User";
+			this.referenceConnectionStringDatabaseLabel.AutoSize = true;
+			this.referenceConnectionStringDatabaseLabel.Location = new System.Drawing.Point(409, 34);
+			this.referenceConnectionStringDatabaseLabel.Name = "referenceConnectionStringDatabaseLabel";
+			this.referenceConnectionStringDatabaseLabel.Size = new System.Drawing.Size(53, 13);
+			this.referenceConnectionStringDatabaseLabel.TabIndex = 15;
+			this.referenceConnectionStringDatabaseLabel.Text = "Database";
+			// 
+			// referenceConnectionStringPasswordLabel
+			// 
+			this.referenceConnectionStringPasswordLabel.AutoSize = true;
+			this.referenceConnectionStringPasswordLabel.Location = new System.Drawing.Point(206, 34);
+			this.referenceConnectionStringPasswordLabel.Name = "referenceConnectionStringPasswordLabel";
+			this.referenceConnectionStringPasswordLabel.Size = new System.Drawing.Size(53, 13);
+			this.referenceConnectionStringPasswordLabel.TabIndex = 3;
+			this.referenceConnectionStringPasswordLabel.Text = "Password";
+			// 
+			// referenceConnectionStringUserLabel
+			// 
+			this.referenceConnectionStringUserLabel.AutoSize = true;
+			this.referenceConnectionStringUserLabel.Location = new System.Drawing.Point(9, 34);
+			this.referenceConnectionStringUserLabel.Name = "referenceConnectionStringUserLabel";
+			this.referenceConnectionStringUserLabel.Size = new System.Drawing.Size(29, 13);
+			this.referenceConnectionStringUserLabel.TabIndex = 0;
+			this.referenceConnectionStringUserLabel.Text = "User";
 			// 
 			// grabTab
 			// 
-			this.grabTab.Controls.Add(this.groupBox1);
-			this.grabTab.Controls.Add(this.crawlSiteGroupBox);
+			this.grabTab.Controls.Add(this.grabDataGroupBox);
+			this.grabTab.Controls.Add(this.grabSiteGroupBox);
 			this.grabTab.Location = new System.Drawing.Point(4, 22);
 			this.grabTab.Name = "grabTab";
 			this.grabTab.Padding = new System.Windows.Forms.Padding(3);
@@ -292,27 +318,27 @@
 			this.grabTab.Text = "Grab";
 			this.grabTab.UseVisualStyleBackColor = true;
 			// 
-			// groupBox1
+			// grabDataGroupBox
 			// 
-			this.groupBox1.Controls.Add(this.grabDataDocumentsLabel);
-			this.groupBox1.Controls.Add(this.grabDataDocumentsTextBox);
-			this.groupBox1.Controls.Add(this.grabDataCategoryTextBox);
-			this.groupBox1.Controls.Add(this.grabDataCategoryLabel);
-			this.groupBox1.Controls.Add(this.grabDataAttributesTextBox);
-			this.groupBox1.Controls.Add(this.grabDataAttributesLabel);
-			this.groupBox1.Controls.Add(this.grabDataPictureTextBox);
-			this.groupBox1.Controls.Add(this.grabDataPictureLabel);
-			this.groupBox1.Controls.Add(this.grabDataFullDescriptionTextBox);
-			this.groupBox1.Controls.Add(this.grabDataFullDescriptionLabel);
-			this.groupBox1.Controls.Add(this.grabDataNameTextBox);
-			this.groupBox1.Controls.Add(this.grabDataNameLabel);
-			this.groupBox1.Controls.Add(this.grabDataButton);
-			this.groupBox1.Location = new System.Drawing.Point(6, 152);
-			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(597, 149);
-			this.groupBox1.TabIndex = 11;
-			this.groupBox1.TabStop = false;
-			this.groupBox1.Text = "Data";
+			this.grabDataGroupBox.Controls.Add(this.grabDataDocumentsLabel);
+			this.grabDataGroupBox.Controls.Add(this.grabDataDocumentsTextBox);
+			this.grabDataGroupBox.Controls.Add(this.grabDataCategoryTextBox);
+			this.grabDataGroupBox.Controls.Add(this.grabDataCategoryLabel);
+			this.grabDataGroupBox.Controls.Add(this.grabDataAttributesTextBox);
+			this.grabDataGroupBox.Controls.Add(this.grabDataAttributesLabel);
+			this.grabDataGroupBox.Controls.Add(this.grabDataPictureTextBox);
+			this.grabDataGroupBox.Controls.Add(this.grabDataPictureLabel);
+			this.grabDataGroupBox.Controls.Add(this.grabDataFullDescriptionTextBox);
+			this.grabDataGroupBox.Controls.Add(this.grabDataFullDescriptionLabel);
+			this.grabDataGroupBox.Controls.Add(this.grabDataNameTextBox);
+			this.grabDataGroupBox.Controls.Add(this.grabDataNameLabel);
+			this.grabDataGroupBox.Controls.Add(this.grabDataButton);
+			this.grabDataGroupBox.Location = new System.Drawing.Point(6, 152);
+			this.grabDataGroupBox.Name = "grabDataGroupBox";
+			this.grabDataGroupBox.Size = new System.Drawing.Size(597, 149);
+			this.grabDataGroupBox.TabIndex = 11;
+			this.grabDataGroupBox.TabStop = false;
+			this.grabDataGroupBox.Text = "Data";
 			// 
 			// grabDataDocumentsLabel
 			// 
@@ -388,6 +414,7 @@
 			this.grabDataFullDescriptionTextBox.Name = "grabDataFullDescriptionTextBox";
 			this.grabDataFullDescriptionTextBox.Size = new System.Drawing.Size(142, 20);
 			this.grabDataFullDescriptionTextBox.TabIndex = 13;
+			this.grabDataFullDescriptionTextBox.Text = "#body #blockProductInfo #productDetailCenterDescription";
 			// 
 			// grabDataFullDescriptionLabel
 			// 
@@ -425,24 +452,24 @@
 			this.grabDataButton.TabIndex = 4;
 			this.grabDataButton.Text = "Commence";
 			this.grabDataButton.UseVisualStyleBackColor = true;
-			this.grabDataButton.Click += new System.EventHandler(this.Grab_Commence);
+			this.grabDataButton.Click += new System.EventHandler(this.Grab_Data_Commence);
 			// 
-			// crawlSiteGroupBox
+			// grabSiteGroupBox
 			// 
-			this.crawlSiteGroupBox.Controls.Add(this.radioButton2);
-			this.crawlSiteGroupBox.Controls.Add(this.radioButton1);
-			this.crawlSiteGroupBox.Controls.Add(this.textBox2);
-			this.crawlSiteGroupBox.Controls.Add(this.label2);
-			this.crawlSiteGroupBox.Controls.Add(this.textBox1);
-			this.crawlSiteGroupBox.Controls.Add(this.label1);
-			this.crawlSiteGroupBox.Controls.Add(this.crawlSiteTextBox);
-			this.crawlSiteGroupBox.Controls.Add(this.crawlSiteHostnameLabel);
-			this.crawlSiteGroupBox.Location = new System.Drawing.Point(6, 6);
-			this.crawlSiteGroupBox.Name = "crawlSiteGroupBox";
-			this.crawlSiteGroupBox.Size = new System.Drawing.Size(597, 140);
-			this.crawlSiteGroupBox.TabIndex = 0;
-			this.crawlSiteGroupBox.TabStop = false;
-			this.crawlSiteGroupBox.Text = "Site";
+			this.grabSiteGroupBox.Controls.Add(this.radioButton2);
+			this.grabSiteGroupBox.Controls.Add(this.radioButton1);
+			this.grabSiteGroupBox.Controls.Add(this.textBox2);
+			this.grabSiteGroupBox.Controls.Add(this.label2);
+			this.grabSiteGroupBox.Controls.Add(this.textBox1);
+			this.grabSiteGroupBox.Controls.Add(this.label1);
+			this.grabSiteGroupBox.Controls.Add(this.grabSiteTextBox);
+			this.grabSiteGroupBox.Controls.Add(this.grabSiteHostnameLabel);
+			this.grabSiteGroupBox.Location = new System.Drawing.Point(6, 6);
+			this.grabSiteGroupBox.Name = "grabSiteGroupBox";
+			this.grabSiteGroupBox.Size = new System.Drawing.Size(597, 140);
+			this.grabSiteGroupBox.TabIndex = 0;
+			this.grabSiteGroupBox.TabStop = false;
+			this.grabSiteGroupBox.Text = "Site";
 			// 
 			// radioButton2
 			// 
@@ -458,6 +485,7 @@
 			// radioButton1
 			// 
 			this.radioButton1.AutoSize = true;
+			this.radioButton1.Checked = true;
 			this.radioButton1.Location = new System.Drawing.Point(209, 48);
 			this.radioButton1.Name = "radioButton1";
 			this.radioButton1.Size = new System.Drawing.Size(64, 17);
@@ -468,6 +496,7 @@
 			// 
 			// textBox2
 			// 
+			this.textBox2.Enabled = false;
 			this.textBox2.Location = new System.Drawing.Point(203, 104);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(191, 20);
@@ -484,6 +513,7 @@
 			// 
 			// textBox1
 			// 
+			this.textBox1.Enabled = false;
 			this.textBox1.Location = new System.Drawing.Point(6, 104);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(191, 20);
@@ -498,68 +528,60 @@
 			this.label1.TabIndex = 5;
 			this.label1.Text = "Username / Email";
 			// 
-			// crawlSiteTextBox
+			// grabSiteTextBox
 			// 
-			this.crawlSiteTextBox.Location = new System.Drawing.Point(6, 48);
-			this.crawlSiteTextBox.Name = "crawlSiteTextBox";
-			this.crawlSiteTextBox.Size = new System.Drawing.Size(191, 20);
-			this.crawlSiteTextBox.TabIndex = 3;
-			this.crawlSiteTextBox.Text = "http://";
+			this.grabSiteTextBox.Location = new System.Drawing.Point(6, 48);
+			this.grabSiteTextBox.Name = "grabSiteTextBox";
+			this.grabSiteTextBox.Size = new System.Drawing.Size(191, 20);
+			this.grabSiteTextBox.TabIndex = 3;
+			this.grabSiteTextBox.Text = "http://";
 			// 
-			// crawlSiteHostnameLabel
+			// grabSiteHostnameLabel
 			// 
-			this.crawlSiteHostnameLabel.AutoSize = true;
-			this.crawlSiteHostnameLabel.Location = new System.Drawing.Point(9, 32);
-			this.crawlSiteHostnameLabel.Name = "crawlSiteHostnameLabel";
-			this.crawlSiteHostnameLabel.Size = new System.Drawing.Size(55, 13);
-			this.crawlSiteHostnameLabel.TabIndex = 2;
-			this.crawlSiteHostnameLabel.Text = "Hostname";
+			this.grabSiteHostnameLabel.AutoSize = true;
+			this.grabSiteHostnameLabel.Location = new System.Drawing.Point(9, 32);
+			this.grabSiteHostnameLabel.Name = "grabSiteHostnameLabel";
+			this.grabSiteHostnameLabel.Size = new System.Drawing.Size(55, 13);
+			this.grabSiteHostnameLabel.TabIndex = 2;
+			this.grabSiteHostnameLabel.Text = "Hostname";
 			// 
-			// trawlConsoleGroupBox
+			// consoleGroupBox
 			// 
-			this.trawlConsoleGroupBox.Controls.Add(this.trawlConsoleClearButton);
-			this.trawlConsoleGroupBox.Controls.Add(this.trawlConsoleTextBox);
-			this.trawlConsoleGroupBox.Location = new System.Drawing.Point(16, 351);
-			this.trawlConsoleGroupBox.Name = "trawlConsoleGroupBox";
-			this.trawlConsoleGroupBox.Size = new System.Drawing.Size(597, 329);
-			this.trawlConsoleGroupBox.TabIndex = 15;
-			this.trawlConsoleGroupBox.TabStop = false;
-			this.trawlConsoleGroupBox.Text = "Console";
+			this.consoleGroupBox.Controls.Add(this.consoleClearButton);
+			this.consoleGroupBox.Controls.Add(this.consoleTextBox);
+			this.consoleGroupBox.Location = new System.Drawing.Point(12, 351);
+			this.consoleGroupBox.Name = "consoleGroupBox";
+			this.consoleGroupBox.Size = new System.Drawing.Size(613, 329);
+			this.consoleGroupBox.TabIndex = 15;
+			this.consoleGroupBox.TabStop = false;
+			this.consoleGroupBox.Text = "Console";
 			// 
-			// trawlConsoleClearButton
+			// consoleClearButton
 			// 
-			this.trawlConsoleClearButton.Location = new System.Drawing.Point(406, 304);
-			this.trawlConsoleClearButton.Name = "trawlConsoleClearButton";
-			this.trawlConsoleClearButton.Size = new System.Drawing.Size(185, 19);
-			this.trawlConsoleClearButton.TabIndex = 14;
-			this.trawlConsoleClearButton.Text = "Clear";
-			this.trawlConsoleClearButton.UseVisualStyleBackColor = true;
-			this.trawlConsoleClearButton.Click += new System.EventHandler(this.Trawl_Clear_Click);
+			this.consoleClearButton.Location = new System.Drawing.Point(416, 304);
+			this.consoleClearButton.Name = "consoleClearButton";
+			this.consoleClearButton.Size = new System.Drawing.Size(185, 19);
+			this.consoleClearButton.TabIndex = 14;
+			this.consoleClearButton.Text = "Clear";
+			this.consoleClearButton.UseVisualStyleBackColor = true;
+			this.consoleClearButton.Click += new System.EventHandler(this.Console_Clear);
 			// 
-			// trawlConsoleTextBox
+			// consoleTextBox
 			// 
-			this.trawlConsoleTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.trawlConsoleTextBox.Location = new System.Drawing.Point(6, 19);
-			this.trawlConsoleTextBox.Name = "trawlConsoleTextBox";
-			this.trawlConsoleTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-			this.trawlConsoleTextBox.Size = new System.Drawing.Size(585, 279);
-			this.trawlConsoleTextBox.TabIndex = 9;
-			this.trawlConsoleTextBox.Text = "";
-			// 
-			// referenceComparisonListView
-			// 
-			this.referenceComparisonListView.Location = new System.Drawing.Point(6, 19);
-			this.referenceComparisonListView.Name = "referenceComparisonListView";
-			this.referenceComparisonListView.Size = new System.Drawing.Size(394, 135);
-			this.referenceComparisonListView.TabIndex = 15;
-			this.referenceComparisonListView.UseCompatibleStateImageBehavior = false;
+			this.consoleTextBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+			this.consoleTextBox.Location = new System.Drawing.Point(6, 19);
+			this.consoleTextBox.Name = "consoleTextBox";
+			this.consoleTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+			this.consoleTextBox.Size = new System.Drawing.Size(595, 279);
+			this.consoleTextBox.TabIndex = 9;
+			this.consoleTextBox.Text = "";
 			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(641, 720);
-			this.Controls.Add(this.trawlConsoleGroupBox);
+			this.Controls.Add(this.consoleGroupBox);
 			this.Controls.Add(this.tabControl);
 			this.Controls.Add(this.progressBar);
 			this.Name = "MainForm";
@@ -567,16 +589,17 @@
 			this.tabControl.ResumeLayout(false);
 			this.referenceTab.ResumeLayout(false);
 			this.referenceTab.PerformLayout();
-			this.trawlComparisonDataGroupBox.ResumeLayout(false);
-			this.trawlComparisonDataGroupBox.PerformLayout();
-			this.trawlConnectionStringGroupBox.ResumeLayout(false);
-			this.trawlConnectionStringGroupBox.PerformLayout();
+			this.referenceComparisonDataGroupBox.ResumeLayout(false);
+			this.referenceComparisonDataGroupBox.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.referenceComparisonDataGridView)).EndInit();
+			this.referenceConnectionStringGroupBox.ResumeLayout(false);
+			this.referenceConnectionStringGroupBox.PerformLayout();
 			this.grabTab.ResumeLayout(false);
-			this.groupBox1.ResumeLayout(false);
-			this.groupBox1.PerformLayout();
-			this.crawlSiteGroupBox.ResumeLayout(false);
-			this.crawlSiteGroupBox.PerformLayout();
-			this.trawlConsoleGroupBox.ResumeLayout(false);
+			this.grabDataGroupBox.ResumeLayout(false);
+			this.grabDataGroupBox.PerformLayout();
+			this.grabSiteGroupBox.ResumeLayout(false);
+			this.grabSiteGroupBox.PerformLayout();
+			this.consoleGroupBox.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -585,30 +608,28 @@
 		private System.Windows.Forms.ProgressBar progressBar;
 		private System.Windows.Forms.TabControl tabControl;
 		private System.Windows.Forms.TabPage referenceTab;
-		private System.Windows.Forms.Label trawlConnectionStringUserLabel;
+		private System.Windows.Forms.Label referenceConnectionStringUserLabel;
 		private System.Windows.Forms.TabPage grabTab;
-		private System.Windows.Forms.TextBox trawlConnectionStringPortTextBox;
-		private System.Windows.Forms.Label trawlConnectionStringPortLabel;
-		private System.Windows.Forms.TextBox trawlConnectionStringAddressTextBox;
-		private System.Windows.Forms.Label trawlConnectionStringAddressLabel;
-		private System.Windows.Forms.TextBox trawlConnectionStringPasswordTextBox;
-		private System.Windows.Forms.Label trawlConnectionStringPasswordLabel;
-		private System.Windows.Forms.Button trawlConnectionStringVerifyButton;
-		private System.Windows.Forms.TextBox trawlConnectionStringUserTextBox;
-		private System.Windows.Forms.GroupBox trawlConnectionStringGroupBox;
-		private System.Windows.Forms.GroupBox trawlComparisonDataGroupBox;
-		private System.Windows.Forms.Button trawlReferenceSheetGenerateButton;
-		private System.Windows.Forms.CheckBox trawlComparisonDataCategoriesCheckBox;
-		private System.Windows.Forms.CheckBox trawlComparisonDataProductsCheckBox;
-		private System.Windows.Forms.TextBox trawlConnectionStringDatabaseTextBox;
-		private System.Windows.Forms.Label trawlConnectionStringDatabaseLabel;
-		private System.Windows.Forms.GroupBox crawlSiteGroupBox;
-		private System.Windows.Forms.TextBox crawlSiteTextBox;
-		private System.Windows.Forms.Label crawlSiteHostnameLabel;
-		private System.Windows.Forms.GroupBox trawlConsoleGroupBox;
-		private System.Windows.Forms.Button trawlConsoleClearButton;
-		private System.Windows.Forms.RichTextBox trawlConsoleTextBox;
-		private System.Windows.Forms.GroupBox groupBox1;
+		private System.Windows.Forms.TextBox referenceConnectionStringPortTextBox;
+		private System.Windows.Forms.Label referenceConnectionStringPortLabel;
+		private System.Windows.Forms.TextBox referenceConnectionStringAddressTextBox;
+		private System.Windows.Forms.Label referenceConnectionStringAddressLabel;
+		private System.Windows.Forms.TextBox referenceConnectionStringPasswordTextBox;
+		private System.Windows.Forms.Label referenceConnectionStringPasswordLabel;
+		private System.Windows.Forms.Button referenceConnectionStringVerifyButton;
+		private System.Windows.Forms.TextBox referenceConnectionStringUserTextBox;
+		private System.Windows.Forms.GroupBox referenceConnectionStringGroupBox;
+		private System.Windows.Forms.GroupBox referenceComparisonDataGroupBox;
+		private System.Windows.Forms.Button referenceComparisonDataSheetGenerateButton;
+		private System.Windows.Forms.TextBox referenceConnectionStringDatabaseTextBox;
+		private System.Windows.Forms.Label referenceConnectionStringDatabaseLabel;
+		private System.Windows.Forms.GroupBox grabSiteGroupBox;
+		private System.Windows.Forms.TextBox grabSiteTextBox;
+		private System.Windows.Forms.Label grabSiteHostnameLabel;
+		private System.Windows.Forms.GroupBox consoleGroupBox;
+		private System.Windows.Forms.Button consoleClearButton;
+		private System.Windows.Forms.RichTextBox consoleTextBox;
+		private System.Windows.Forms.GroupBox grabDataGroupBox;
 		private System.Windows.Forms.Button grabDataButton;
 		private System.Windows.Forms.RadioButton radioButton2;
 		private System.Windows.Forms.RadioButton radioButton1;
@@ -616,7 +637,7 @@
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Button trawlReferenceLoadButton;
+		private System.Windows.Forms.Button referenceComparisonDataLoadButton;
 		private System.Windows.Forms.TextBox grabDataCategoryTextBox;
 		private System.Windows.Forms.CheckBox grabDataCategoryLabel;
 		private System.Windows.Forms.TextBox grabDataAttributesTextBox;
@@ -629,7 +650,10 @@
 		private System.Windows.Forms.CheckBox grabDataNameLabel;
 		private System.Windows.Forms.CheckBox grabDataDocumentsLabel;
 		private System.Windows.Forms.TextBox grabDataDocumentsTextBox;
-		private System.Windows.Forms.ListView referenceComparisonListView;
+		private System.Windows.Forms.CheckBox referenceComparisonDataHeaderCheckBox;
+		private System.Windows.Forms.RadioButton referenceComparisonDataSKURadio;
+		private System.Windows.Forms.RadioButton referenceComparisonDataProductIdRadio;
+		private System.Windows.Forms.DataGridView referenceComparisonDataGridView;
 	}
 }
 

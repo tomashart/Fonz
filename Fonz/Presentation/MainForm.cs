@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Storefront.Data;
+﻿using Fonz.Controllers.Grab;
+using Fonz.Controllers.Reference;
+using Fonz.Models;
 using Storefront.Core.Domain.Catalog;
-using Storefront.Services.Catalog;
-using Autofac;
-using Fonz.Controllers.Grab;
-using System.IO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Fonz
 {
@@ -25,35 +18,31 @@ namespace Fonz
 
 		public MainForm()
 		{
-			DependencyConfig dp = new DependencyConfig();
-			ContainerBuilder builder = new ContainerBuilder();
-			dp.RegisterDependencies(builder);
-
 			InitializeComponent();
 		}
 
-		private void Verify_Click(object sender, EventArgs e)
-		{
-			progressBar.Value = 0;
+		#region UI Events
 
-			trawlConnectionStringGroupBox.Enabled = false;
-			trawlConnectionStringUserTextBox.Enabled = false;
-			trawlConnectionStringPasswordTextBox.Enabled = false;
-			trawlConnectionStringDatabaseTextBox.Enabled = false;
-			trawlConnectionStringAddressTextBox.Enabled = false;
-			trawlConnectionStringPortTextBox.Enabled = false;
+		#region Reference Tab
+
+		private void Reference_ConnectionString_Verify(object sender, EventArgs e)
+		{
+			referenceConnectionStringGroupBox.Enabled = false;
+			referenceConnectionStringUserTextBox.Enabled = false;
+			referenceConnectionStringPasswordTextBox.Enabled = false;
+			referenceConnectionStringDatabaseTextBox.Enabled = false;
+			referenceConnectionStringAddressTextBox.Enabled = false;
+			referenceConnectionStringPortTextBox.Enabled = false;
 
 			try
 			{
-				trawlConsoleTextBox.AppendText("Verifying connection string settings" + "\n");
+				WriteLine(consoleTextBox, "Verifying connection string settings");
 
-				string user = trawlConnectionStringUserTextBox.Text.ToString() ?? "";
-				string password = trawlConnectionStringPasswordTextBox.Text.ToString() ?? "";
-				string database = trawlConnectionStringDatabaseTextBox.Text.ToString() ?? "";
-				string address = trawlConnectionStringAddressTextBox.Text.ToString() ?? "";
-				string port = trawlConnectionStringPortTextBox.Text.ToString() ?? "";
-
-				if (progressBar.Value < 100) progressBar.Value += 10;
+				string user = referenceConnectionStringUserTextBox.Text.ToString() ?? "";
+				string password = referenceConnectionStringPasswordTextBox.Text.ToString() ?? "";
+				string database = referenceConnectionStringDatabaseTextBox.Text.ToString() ?? "";
+				string address = referenceConnectionStringAddressTextBox.Text.ToString() ?? "";
+				string port = referenceConnectionStringPortTextBox.Text.ToString() ?? "";
 
 				if
 				(
@@ -68,179 +57,145 @@ namespace Fonz
 				}
 				else
 				{
-					MySql.Data.MySqlClient.MySqlConnection connection =
-						new MySql.Data.MySqlClient.MySqlConnection(
-							String.Format(
-								"Server={0};Port=3306;Database={1};Allow Zero Datetime=true;Convert Zero Datetime=True;Allow User Variables=True;Uid={2};Pwd={3};Charset=utf8;",
-								address,
-								database,
-								user,
-								password
-							)
-						);
+					_verified = ReferenceController.VerifyConnection(address, database, user, password, port);
 
-					using (connection)
-					{
-						connection.Open();
-					}
-
-					_verified = true;
-
-					trawlConsoleTextBox.AppendText("Connection verified" + "\n");
-
-					if (progressBar.Value < 100) progressBar.Value += 10;
+					WriteLine(consoleTextBox, "Connection verified");
 				}
-
-				if (progressBar.Value < 100) progressBar.Value += 10;
 			}
 			catch (Exception ex)
 			{
-				progressBar.Value = 0;
-
-				trawlConsoleTextBox.AppendText("Exception encountered: " + ex.Message + "\n");
+				WriteLine(consoleTextBox, "Exception encountered: " + ex.Message);
 			}
 
-			trawlConnectionStringGroupBox.Enabled = true;
-			trawlConnectionStringUserTextBox.Enabled = true;
-			trawlConnectionStringPasswordTextBox.Enabled = true;
-			trawlConnectionStringDatabaseTextBox.Enabled = true;
-			trawlConnectionStringAddressTextBox.Enabled = true;
-			trawlConnectionStringPortTextBox.Enabled = true;
-
-			progressBar.Value = 0;
+			referenceConnectionStringGroupBox.Enabled = true;
+			referenceConnectionStringUserTextBox.Enabled = true;
+			referenceConnectionStringPasswordTextBox.Enabled = true;
+			referenceConnectionStringDatabaseTextBox.Enabled = true;
+			referenceConnectionStringAddressTextBox.Enabled = true;
+			referenceConnectionStringPortTextBox.Enabled = true;
 		}
 
-		private void Trawl_Clear_Click(object sender, EventArgs e)
-		{
-			trawlConsoleTextBox.Clear();
-		}
-
-		#region Subsets
-
-		//private void Trawl_Products_Changed(object sender, EventArgs e)
-		//{
-		//	if (trawlComparisonDataProductsCheckBox.Checked)
-		//	{
-		//		trawlComparisonDataProductsSkuCheckBox.Enabled = true;
-		//		trawlComparisonDataProductsNameCheckBox.Enabled = true;
-		//		trawlComparisonDataProductsGtinCheckBox.Enabled = true;
-		//	}
-		//	else
-		//	{
-		//		trawlComparisonDataProductsSkuCheckBox.Enabled = false;
-		//		trawlComparisonDataProductsSkuCheckBox.Checked = false;
-		//		trawlComparisonDataProductsNameCheckBox.Enabled = false;
-		//		trawlComparisonDataProductsNameCheckBox.Checked = false;
-		//		trawlComparisonDataProductsGtinCheckBox.Enabled = false;
-		//		trawlComparisonDataProductsGtinCheckBox.Checked = false;
-		//	}
-		//}
-
-		//private void Trawl_Categories_Changed(object sender, EventArgs e)
-		//{
-		//	if (trawlComparisonDataCategoriesCheckBox.Checked)
-		//	{
-		//		trawlComparisonDataCategoriesDisplayOrderCheckBox.Enabled = true;
-		//		trawlComparisonDataCategoriesNameCheckBox.Enabled = true;
-		//		trawlComparisonDataCategoriesPathCheckBox.Enabled = true;
-		//	}
-		//	else
-		//	{
-		//		trawlComparisonDataCategoriesDisplayOrderCheckBox.Enabled = false;
-		//		trawlComparisonDataCategoriesDisplayOrderCheckBox.Checked = false;
-		//		trawlComparisonDataCategoriesNameCheckBox.Enabled = false;
-		//		trawlComparisonDataCategoriesNameCheckBox.Checked = false;
-		//		trawlComparisonDataCategoriesPathCheckBox.Enabled = false;
-		//		trawlComparisonDataCategoriesPathCheckBox.Checked = false;
-		//	}
-		//}
-
-		#endregion
-
-		private void Trawl_Generate_Click(object sender, EventArgs e)
+		private void Reference_ComparisonData_Load(object sender, EventArgs e)
 		{
 			try
 			{
-				if (_verified)
+				_comparisonData = ReferenceController.LoadFile();
+
+				if (referenceComparisonDataHeaderCheckBox.Checked)
 				{
-					if (trawlComparisonDataProductsCheckBox.Checked)
-					{
-						//Get products
-						//_products = _productRepo.Table.Where();
-					}
-
-					if (trawlComparisonDataCategoriesCheckBox.Checked)
-					{
-						//Get categories
-					}
+					referenceComparisonDataGridView.DataSource = _comparisonData.Skip(1);
 				}
-			}
-			catch (Exception)
-			{
+				else
+				{
+					referenceComparisonDataGridView.DataSource = _comparisonData;
+				}
 
-				throw;
+				WriteLine(consoleTextBox, "Row(s) imported successfully: " + _comparisonData.Count);
+			}
+			catch (Exception ex)
+			{
+				WriteLine(consoleTextBox, "Exception encountered: " + ex.Message);
 			}
 		}
 
-		private void ToggleStatus()
+		private void Reference_ComparisonData_Generate(object sender, EventArgs e)
 		{
-			//if (control.HasChildren)
-			//{
-			//	foreach (var child in control)
+			//	try
+			//	{
+			//		if (_verified)
+			//		{
+			//			if (trawlComparisonDataProductsCheckBox.Checked)
+			//			{
+			//				//Get products
+			//				//_products = _productRepo.Table.Where();
+			//			}
+
+			//			if (trawlComparisonDataCategoriesCheckBox.Checked)
+			//			{
+			//				//Get categories
+			//			}
+			//		}
+			//	}
+			//	catch (Exception)
 			//	{
 
+			//		throw;
 			//	}
-			//}
 		}
 
-		private void trawlReferenceLoadButton_Click(object sender, EventArgs e)
+		#endregion
+
+		#region Grab Tab
+
+		private void Grab_Data_Commence(object sender, EventArgs e)
 		{
-			OpenFileDialog openFileDialog = new OpenFileDialog();
-			openFileDialog.Filter = "CSV files (*.csv)|*.csv";
-			openFileDialog.InitialDirectory = @"C:\";
+			var selectors = new XmlProduct();
 
-			if (openFileDialog.ShowDialog() == DialogResult.OK)
-			{
-				_comparisonData = ReadCSV(openFileDialog.FileName).ToList();
-			}
+			if (grabDataNameLabel.Checked && !string.IsNullOrWhiteSpace(grabDataNameTextBox.Text))
+				selectors.Add(new Selector(grabDataNameLabel.Text, grabDataNameTextBox.Text));
+
+			if (grabDataFullDescriptionLabel.Checked && !string.IsNullOrWhiteSpace(grabDataFullDescriptionTextBox.Text))
+				selectors.Add(new Selector(grabDataFullDescriptionLabel.Text, grabDataFullDescriptionTextBox.Text));
+
+			if (grabDataPictureLabel.Checked && !string.IsNullOrWhiteSpace(grabDataPictureTextBox.Text))
+				selectors.Add(new Selector(grabDataPictureLabel.Text, grabDataPictureTextBox.Text));
+
+			if (grabDataAttributesLabel.Checked && !string.IsNullOrWhiteSpace(grabDataAttributesTextBox.Text))
+				selectors.Add(new Selector(grabDataAttributesLabel.Text, grabDataAttributesTextBox.Text));
+
+			if (grabDataCategoryLabel.Checked && !string.IsNullOrWhiteSpace(grabDataCategoryTextBox.Text))
+				selectors.Add(new Selector(grabDataCategoryLabel.Text, grabDataCategoryTextBox.Text));
+
+			if (grabDataDocumentsLabel.Checked && !string.IsNullOrWhiteSpace(grabDataDocumentsTextBox.Text))
+				selectors.Add(new Selector(grabDataDocumentsLabel.Text, grabDataDocumentsTextBox.Text));
+
+			//if (grabDataNameLabel.Checked && !string.IsNullOrWhiteSpace(grabDataNameTextBox.Text))
+			//	selectors.Add(new Selector(grabDataNameLabel.Text, grabDataNameTextBox.Text));
+
+			//if (grabDataFullDescriptionLabel.Checked && !string.IsNullOrWhiteSpace(grabDataFullDescriptionTextBox.Text))
+			//	selectors.Add(new Selector(grabDataFullDescriptionLabel.Text, grabDataFullDescriptionTextBox.Text));
+
+			//if (grabDataPictureLabel.Checked && !string.IsNullOrWhiteSpace(grabDataPictureTextBox.Text))
+			//	selectors.Add(new Selector(grabDataPictureLabel.Text, grabDataPictureTextBox.Text));
+
+			//if (grabDataAttributesLabel.Checked && !string.IsNullOrWhiteSpace(grabDataAttributesTextBox.Text))
+			//	selectors.Add(new Selector(grabDataAttributesLabel.Text, grabDataAttributesTextBox.Text));
+
+			//if (grabDataCategoryLabel.Checked && !string.IsNullOrWhiteSpace(grabDataCategoryTextBox.Text))
+			//	selectors.Add(new Selector(grabDataCategoryLabel.Text, grabDataCategoryTextBox.Text));
+
+			//if (grabDataDocumentsLabel.Checked && !string.IsNullOrWhiteSpace(grabDataDocumentsTextBox.Text))
+			//	selectors.Add(new Selector(grabDataDocumentsLabel.Text, grabDataDocumentsTextBox.Text));
+
+			//https://eshop.wuerth.de/0/<SKU>.sku/en/US/EUR/
+
+			GrabController.Grab(grabSiteTextBox.Text, _comparisonData.ToArray(), selectors);
 		}
 
-		public IEnumerable<string> ReadCSV(string fileName, char seperator = ',')
+		#endregion
+
+		#region Serialize Tab
+
+		#endregion
+
+		#region Global
+
+		private void Console_Clear(object sender, EventArgs e)
 		{
-			return File.ReadAllLines(System.IO.Path.ChangeExtension(fileName, ".csv"));
-
-			//project each line as a string
-			//return lines.Select(line =>
-			//{
-			//	string[] data = line.Split(seperator);
-
-			//	return new string(data[0]);
-			//});
+			consoleTextBox.Clear();
 		}
 
-		private void Grab_Commence(object sender, EventArgs e)
+		#endregion
+
+		#endregion
+
+		#region Utility Methods
+
+		private static void WriteLine(RichTextBox control, string text, bool newline = true)
 		{
-			var selectors = new List<string>();
-
-			if (grabDataNameLabel.Checked && string.IsNullOrWhiteSpace(grabDataNameTextBox.Text))
-				selectors.Add(grabDataNameTextBox.Text);
-
-			if (grabDataFullDescriptionLabel.Checked && string.IsNullOrWhiteSpace(grabDataFullDescriptionTextBox.Text))
-				selectors.Add(grabDataFullDescriptionTextBox.Text);
-
-			if (grabDataPictureLabel.Checked && string.IsNullOrWhiteSpace(grabDataPictureTextBox.Text))
-				selectors.Add(grabDataPictureTextBox.Text);
-
-			if (grabDataAttributesLabel.Checked && string.IsNullOrWhiteSpace(grabDataAttributesTextBox.Text))
-				selectors.Add(grabDataAttributesTextBox.Text);
-
-			if (grabDataCategoryLabel.Checked && string.IsNullOrWhiteSpace(grabDataCategoryTextBox.Text))
-				selectors.Add(grabDataCategoryTextBox.Text);
-
-			if (grabDataDocumentsLabel.Checked && string.IsNullOrWhiteSpace(grabDataDocumentsTextBox.Text))
-				selectors.Add(grabDataDocumentsTextBox.Text);
-
-			GrabController.Grab(new string[] {"https://eshop.wuerth.de/0/0876007200.sku/en/US/EUR/?SupplierID=WuerthGroup-Wuerth&CategoryID=pd4KD92eJ28AAAFBhdQZ8IdN"}, selectors.ToArray());
+			control.AppendText(String.Concat(text, newline ? "\n" : ""));
 		}
+
+		#endregion
 	}
 }

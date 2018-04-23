@@ -338,9 +338,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\Grab\GrabController.cs" />
-    <Compile Include="Controllers\Trawl\ITrawlController.cs" />
-    <Compile Include="Controllers\Trawl\TrawlController.cs" />
+    <Compile Include="Controllers\Reference\ReferenceController.cs" />
+    <Compile Include="Controllers\Serialize\SerializeController.cs" />
     <Compile Include="DependencyConfig.cs" />
+    <Compile Include="Models\Selector.cs" />
     <Compile Include="Models\XmlProduct.cs" />
     <Compile Include="Presentation\MainForm.cs">
       <SubType>Form</SubType>
@@ -393,9 +394,7 @@
   <ItemGroup>
     <Content Include="GoogleMaps.LocationServices.readme.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\Crawl\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

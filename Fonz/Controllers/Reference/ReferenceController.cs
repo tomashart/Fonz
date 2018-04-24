@@ -30,9 +30,9 @@ namespace Fonz.Controllers.Reference
 			return true;
 		}
 
-		public static List<string> LoadFile()
+		public static List<Models.Reference> LoadFile()
 		{
-			var result = new List<string>();
+			var result = new List<Models.Reference>();
 
 			Stream stream = null;
 
@@ -54,16 +54,27 @@ namespace Fonz.Controllers.Reference
 			return result;
 		}
 
-		private static IEnumerable<string> ReadCSV(string fileName, char seperator = ',')
+		private static IEnumerable<Models.Reference> ReadCSV(string fileName, char seperator = ',')
 		{
 			var lines = File.ReadAllLines(Path.ChangeExtension(fileName, ".csv")).ToList();
 
-			//scrubba-dub-dub
-			lines.ForEach(
-				l => l.Replace(" ", "").Replace("\"", "")
-			);
+			var result = new List<Models.Reference>();
 
-			return lines;
+			foreach (var line in lines)
+			{
+				var segments = line.Split(seperator);
+
+				result.Add(
+					new Models.Reference
+						{
+							Sku = segments[0].Replace(" ", "").Replace("\"", ""),
+							Gtin = segments[1].Replace(" ", "").Replace("\"", ""),
+							ProductId = segments[2].Replace(" ", "").Replace("\"", "")
+					}
+				);
+			}
+
+			return result;
 		}
 	}
 }

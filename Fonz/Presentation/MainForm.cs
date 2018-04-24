@@ -1,9 +1,11 @@
 ﻿using Fonz.Controllers.Grab;
 using Fonz.Controllers.Reference;
+using Fonz.Controllers.Serialize;
 using Fonz.Models;
 using Storefront.Core.Domain.Catalog;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,9 +14,9 @@ namespace Fonz
 	public partial class MainForm : Form
 	{
 		private bool _verified { get; set; }
-		private List<Product> _products { get; set; }
+		private List<XmlProduct> _grabbedData { get; set; }
 		private List<Category> _categories { get; set; }
-		private List<string> _comparisonData { get; set; }
+		private List<Models.Reference> _comparisonData { get; set; }
 
 		public MainForm()
 		{
@@ -79,15 +81,41 @@ namespace Fonz
 		{
 			try
 			{
-				_comparisonData = ReferenceController.LoadFile();
+				DataTable dt = new DataTable();
+
+				referenceComparisonDataGridView.DataSource = null;
+
+				List<Models.Reference> fileData = ReferenceController.LoadFile();
+
+				//dt.Columns.Add(referenceComparisonDataProductIdRadio.Checked ? "ProductId" : "SKU");
+
+				dt.Columns.Add("Sku");
+				dt.Columns.Add("Gtin");
+				dt.Columns.Add("ProductId");
 
 				if (referenceComparisonDataHeaderCheckBox.Checked)
 				{
-					referenceComparisonDataGridView.DataSource = _comparisonData.Skip(1);
+					_comparisonData = fileData.Skip(1).ToList();
+
+					foreach (var item in _comparisonData)
+					{
+						//dt.Rows.Add(item);
+						dt.Rows.Add(new { item.Sku }, new { item.Gtin }, new { item.ProductId } );
+					}
+
+					referenceComparisonDataGridView.DataSource = dt;
 				}
 				else
 				{
-					referenceComparisonDataGridView.DataSource = _comparisonData;
+					_comparisonData = fileData;
+
+					foreach (var item in _comparisonData)
+					{
+						//dt.Rows.Add(item);
+						dt.Rows.Add(new { item.Sku }, new { item.Gtin }, new { item.ProductId });
+					}
+
+					referenceComparisonDataGridView.DataSource = dt;
 				}
 
 				WriteLine(consoleTextBox, "Row(s) imported successfully: " + _comparisonData.Count);
@@ -132,49 +160,48 @@ namespace Fonz
 			var selectors = new XmlProduct();
 
 			if (grabDataNameLabel.Checked && !string.IsNullOrWhiteSpace(grabDataNameTextBox.Text))
-				selectors.Add(new Selector(grabDataNameLabel.Text, grabDataNameTextBox.Text));
+				selectors.Name = grabDataNameTextBox.Text;
 
 			if (grabDataFullDescriptionLabel.Checked && !string.IsNullOrWhiteSpace(grabDataFullDescriptionTextBox.Text))
-				selectors.Add(new Selector(grabDataFullDescriptionLabel.Text, grabDataFullDescriptionTextBox.Text));
+				selectors.Description = grabDataFullDescriptionTextBox.Text;
 
 			if (grabDataPictureLabel.Checked && !string.IsNullOrWhiteSpace(grabDataPictureTextBox.Text))
-				selectors.Add(new Selector(grabDataPictureLabel.Text, grabDataPictureTextBox.Text));
+				selectors.Picture = grabDataPictureTextBox.Text;
 
 			if (grabDataAttributesLabel.Checked && !string.IsNullOrWhiteSpace(grabDataAttributesTextBox.Text))
-				selectors.Add(new Selector(grabDataAttributesLabel.Text, grabDataAttributesTextBox.Text));
+				selectors.Attributes = new string[] { grabDataAttributesTextBox.Text };
 
 			if (grabDataCategoryLabel.Checked && !string.IsNullOrWhiteSpace(grabDataCategoryTextBox.Text))
-				selectors.Add(new Selector(grabDataCategoryLabel.Text, grabDataCategoryTextBox.Text));
+				selectors.Categories = new string[] { grabDataCategoryTextBox.Text };
 
 			if (grabDataDocumentsLabel.Checked && !string.IsNullOrWhiteSpace(grabDataDocumentsTextBox.Text))
-				selectors.Add(new Selector(grabDataDocumentsLabel.Text, grabDataDocumentsTextBox.Text));
+				selectors.Documents = new string[] { grabDataDocumentsTextBox.Text };
 
-			//if (grabDataNameLabel.Checked && !string.IsNullOrWhiteSpace(grabDataNameTextBox.Text))
-			//	selectors.Add(new Selector(grabDataNameLabel.Text, grabDataNameTextBox.Text));
+			WriteLine(consoleTextBox, "Grabbing data");
 
-			//if (grabDataFullDescriptionLabel.Checked && !string.IsNullOrWhiteSpace(grabDataFullDescriptionTextBox.Text))
-			//	selectors.Add(new Selector(grabDataFullDescriptionLabel.Text, grabDataFullDescriptionTextBox.Text));
+			GrabController gc = new GrabController();
 
-			//if (grabDataPictureLabel.Checked && !string.IsNullOrWhiteSpace(grabDataPictureTextBox.Text))
-			//	selectors.Add(new Selector(grabDataPictureLabel.Text, grabDataPictureTextBox.Text));
+			gc.Grab(grabSiteTextBox.Text, _comparisonData.ToList(), selectors);
 
-			//if (grabDataAttributesLabel.Checked && !string.IsNullOrWhiteSpace(grabDataAttributesTextBox.Text))
-			//	selectors.Add(new Selector(grabDataAttributesLabel.Text, grabDataAttributesTextBox.Text));
+			_grabbedData = gc._grabbedData;
 
-			//if (grabDataCategoryLabel.Checked && !string.IsNullOrWhiteSpace(grabDataCategoryTextBox.Text))
-			//	selectors.Add(new Selector(grabDataCategoryLabel.Text, grabDataCategoryTextBox.Text));
-
-			//if (grabDataDocumentsLabel.Checked && !string.IsNullOrWhiteSpace(grabDataDocumentsTextBox.Text))
-			//	selectors.Add(new Selector(grabDataDocumentsLabel.Text, grabDataDocumentsTextBox.Text));
-
-			//https://eshop.wuerth.de/0/<SKU>.sku/en/US/EUR/
-
-			GrabController.Grab(grabSiteTextBox.Text, _comparisonData.ToArray(), selectors);
+			//WriteLine(consoleTextBox, "Product(s) imported successfully: " + _grabbedData.Count);
 		}
 
 		#endregion
 
 		#region Serialize Tab
+
+		private void Serialize_XML_Save(object sender, EventArgs e)
+		{
+			SerializeController sc = new SerializeController();
+
+			sc.CreateDocument();
+
+			sc.CreateProductsElement(_grabbedData);
+
+			sc._document.Save("C:\\Projects\\Storefront 7\\Fonz");
+		}
 
 		#endregion
 

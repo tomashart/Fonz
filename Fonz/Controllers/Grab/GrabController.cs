@@ -2,33 +2,50 @@
 using Fonz.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Fonz.Controllers.Grab
 {
-	static class GrabController
+	class GrabController
 	{
-		public static async void Grab(string baseAddress, string[] dataSet, XmlProduct selectors)
+		public List<XmlProduct> _grabbedData { get; set; }
+
+		public async void Grab(string baseAddress, List<Models.Reference> dataSet, XmlProduct selectors, string identifier = "<SKU>")
 		{
-			var result = new List<XmlProduct>();
+			_grabbedData = new List<XmlProduct>();
 
 			var config = Configuration.Default.WithDefaultLoader();
 
-			foreach (var single in dataSet)
+			foreach (var reference in dataSet)
 			{
 				var product = new XmlProduct();
 
-				var document = await BrowsingContext.New(config).OpenAsync(baseAddress.Replace("<SKU>", single).Replace("<ProductId>", single));
+				var single = "";
 
-				product.Name = document.QuerySelector(selectors.Name).TextContent;
-				product.Description = document.QuerySelector(selectors.Description).TextContent;
-				product.Category = document.QuerySelector(selectors.Category).TextContent;
-				product.Attributes = new List<string>() { document.QuerySelector(selectors.Attributes.First()).TextContent };
+				if (identifier == "<SKU>")
+				{
+					single = reference.Sku.Remove(0, 1);
+				}
+				else
+				{
+					single = reference.ProductId;
+				}
 
+				var document = await BrowsingContext.New(config).OpenAsync(baseAddress.Replace(identifier, single));
 
-				//foreach (var cellSelector in selectors)
-				//{
-				//	var cells = document.QuerySelectorAll(cellSelector);
-				//}
+				if (document.QuerySelector("body.product_ProductNotAvailable") != null || document.QuerySelector("product/OfflineProduct") != null)
+					continue;
+
+				product.Name = document.QuerySelector(selectors.Name).TextContent.Replace("\n", "");
+				product.Sku = reference.Sku;
+				product.Gtin = reference.Gtin;
+				product.Description = document.QuerySelector(selectors.Description).TextContent.Replace("\n", "");
+				product.Picture = document.QuerySelector(selectors.Picture).GetAttribute("src").Replace("\n", "");
+				product.Categories = document.QuerySelectorAll(selectors.Categories.First()).ToList().Select(d => d.TextContent.Replace("\n", "")).ToArray();
+				product.Attributes = document.QuerySelectorAll(selectors.Attributes.First()).ToList().Select(a => a.TextContent.Replace("\n", "")).ToArray();
+				product.Documents = document.QuerySelectorAll(selectors.Documents.First()).ToList().Select(d => d.GetAttribute("href")).ToArray();
+
+				_grabbedData.Add(product);
 			}
 		}
 	}

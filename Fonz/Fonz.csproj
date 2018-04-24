@@ -341,7 +341,7 @@
     <Compile Include="Controllers\Reference\ReferenceController.cs" />
     <Compile Include="Controllers\Serialize\SerializeController.cs" />
     <Compile Include="DependencyConfig.cs" />
-    <Compile Include="Models\Selector.cs" />
+    <Compile Include="Models\Reference.cs" />
     <Compile Include="Models\XmlProduct.cs" />
     <Compile Include="Presentation\MainForm.cs">
       <SubType>Form</SubType>

@@ -77,6 +77,9 @@
 			this.consoleGroupBox = new System.Windows.Forms.GroupBox();
 			this.consoleClearButton = new System.Windows.Forms.Button();
 			this.consoleTextBox = new System.Windows.Forms.RichTextBox();
+			this.label3 = new System.Windows.Forms.Label();
+			this.serializeTab = new System.Windows.Forms.TabPage();
+			this.serializeXMLSave = new System.Windows.Forms.Button();
 			this.tabControl.SuspendLayout();
 			this.referenceTab.SuspendLayout();
 			this.referenceComparisonDataGroupBox.SuspendLayout();
@@ -86,6 +89,7 @@
 			this.grabDataGroupBox.SuspendLayout();
 			this.grabSiteGroupBox.SuspendLayout();
 			this.consoleGroupBox.SuspendLayout();
+			this.serializeTab.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// progressBar
@@ -99,6 +103,7 @@
 			// 
 			this.tabControl.Controls.Add(this.referenceTab);
 			this.tabControl.Controls.Add(this.grabTab);
+			this.tabControl.Controls.Add(this.serializeTab);
 			this.tabControl.Location = new System.Drawing.Point(12, 12);
 			this.tabControl.Name = "tabControl";
 			this.tabControl.SelectedIndex = 0;
@@ -126,6 +131,7 @@
 			// 
 			// referenceComparisonDataGroupBox
 			// 
+			this.referenceComparisonDataGroupBox.Controls.Add(this.label3);
 			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataGridView);
 			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataSKURadio);
 			this.referenceComparisonDataGroupBox.Controls.Add(this.referenceComparisonDataProductIdRadio);
@@ -154,7 +160,7 @@
 			// 
 			this.referenceComparisonDataSKURadio.AutoSize = true;
 			this.referenceComparisonDataSKURadio.Checked = true;
-			this.referenceComparisonDataSKURadio.Location = new System.Drawing.Point(406, 42);
+			this.referenceComparisonDataSKURadio.Location = new System.Drawing.Point(406, 64);
 			this.referenceComparisonDataSKURadio.Name = "referenceComparisonDataSKURadio";
 			this.referenceComparisonDataSKURadio.Size = new System.Drawing.Size(47, 17);
 			this.referenceComparisonDataSKURadio.TabIndex = 18;
@@ -165,7 +171,7 @@
 			// referenceComparisonDataProductIdRadio
 			// 
 			this.referenceComparisonDataProductIdRadio.AutoSize = true;
-			this.referenceComparisonDataProductIdRadio.Location = new System.Drawing.Point(406, 19);
+			this.referenceComparisonDataProductIdRadio.Location = new System.Drawing.Point(406, 41);
 			this.referenceComparisonDataProductIdRadio.Name = "referenceComparisonDataProductIdRadio";
 			this.referenceComparisonDataProductIdRadio.Size = new System.Drawing.Size(71, 17);
 			this.referenceComparisonDataProductIdRadio.TabIndex = 17;
@@ -343,6 +349,8 @@
 			// grabDataDocumentsLabel
 			// 
 			this.grabDataDocumentsLabel.AutoSize = true;
+			this.grabDataDocumentsLabel.Checked = true;
+			this.grabDataDocumentsLabel.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.grabDataDocumentsLabel.Location = new System.Drawing.Point(302, 90);
 			this.grabDataDocumentsLabel.Name = "grabDataDocumentsLabel";
 			this.grabDataDocumentsLabel.Size = new System.Drawing.Size(80, 17);
@@ -356,6 +364,7 @@
 			this.grabDataDocumentsTextBox.Name = "grabDataDocumentsTextBox";
 			this.grabDataDocumentsTextBox.Size = new System.Drawing.Size(142, 20);
 			this.grabDataDocumentsTextBox.TabIndex = 21;
+			this.grabDataDocumentsTextBox.Text = "#productDetailCenterDownloads a";
 			// 
 			// grabDataCategoryTextBox
 			// 
@@ -363,10 +372,13 @@
 			this.grabDataCategoryTextBox.Name = "grabDataCategoryTextBox";
 			this.grabDataCategoryTextBox.Size = new System.Drawing.Size(142, 20);
 			this.grabDataCategoryTextBox.TabIndex = 19;
+			this.grabDataCategoryTextBox.Text = "ol.breadcrumb .breadcrumb-item";
 			// 
 			// grabDataCategoryLabel
 			// 
 			this.grabDataCategoryLabel.AutoSize = true;
+			this.grabDataCategoryLabel.Checked = true;
+			this.grabDataCategoryLabel.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.grabDataCategoryLabel.Location = new System.Drawing.Point(154, 90);
 			this.grabDataCategoryLabel.Name = "grabDataCategoryLabel";
 			this.grabDataCategoryLabel.Size = new System.Drawing.Size(68, 17);
@@ -380,10 +392,13 @@
 			this.grabDataAttributesTextBox.Name = "grabDataAttributesTextBox";
 			this.grabDataAttributesTextBox.Size = new System.Drawing.Size(142, 20);
 			this.grabDataAttributesTextBox.TabIndex = 17;
+			this.grabDataAttributesTextBox.Text = "table.tech_table tbody tr td p";
 			// 
 			// grabDataAttributesLabel
 			// 
 			this.grabDataAttributesLabel.AutoSize = true;
+			this.grabDataAttributesLabel.Checked = true;
+			this.grabDataAttributesLabel.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.grabDataAttributesLabel.Location = new System.Drawing.Point(6, 90);
 			this.grabDataAttributesLabel.Name = "grabDataAttributesLabel";
 			this.grabDataAttributesLabel.Size = new System.Drawing.Size(70, 17);
@@ -397,10 +412,13 @@
 			this.grabDataPictureTextBox.Name = "grabDataPictureTextBox";
 			this.grabDataPictureTextBox.Size = new System.Drawing.Size(142, 20);
 			this.grabDataPictureTextBox.TabIndex = 15;
+			this.grabDataPictureTextBox.Text = "#detailImage img.img-fluid[src]";
 			// 
 			// grabDataPictureLabel
 			// 
 			this.grabDataPictureLabel.AutoSize = true;
+			this.grabDataPictureLabel.Checked = true;
+			this.grabDataPictureLabel.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.grabDataPictureLabel.Location = new System.Drawing.Point(302, 29);
 			this.grabDataPictureLabel.Name = "grabDataPictureLabel";
 			this.grabDataPictureLabel.Size = new System.Drawing.Size(59, 17);
@@ -414,11 +432,13 @@
 			this.grabDataFullDescriptionTextBox.Name = "grabDataFullDescriptionTextBox";
 			this.grabDataFullDescriptionTextBox.Size = new System.Drawing.Size(142, 20);
 			this.grabDataFullDescriptionTextBox.TabIndex = 13;
-			this.grabDataFullDescriptionTextBox.Text = "#body #blockProductInfo #productDetailCenterDescription";
+			this.grabDataFullDescriptionTextBox.Text = "#blockProductInfo #productDetailCenterDescription";
 			// 
 			// grabDataFullDescriptionLabel
 			// 
 			this.grabDataFullDescriptionLabel.AutoSize = true;
+			this.grabDataFullDescriptionLabel.Checked = true;
+			this.grabDataFullDescriptionLabel.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.grabDataFullDescriptionLabel.Location = new System.Drawing.Point(154, 29);
 			this.grabDataFullDescriptionLabel.Name = "grabDataFullDescriptionLabel";
 			this.grabDataFullDescriptionLabel.Size = new System.Drawing.Size(98, 17);
@@ -437,6 +457,8 @@
 			// grabDataNameLabel
 			// 
 			this.grabDataNameLabel.AutoSize = true;
+			this.grabDataNameLabel.Checked = true;
+			this.grabDataNameLabel.CheckState = System.Windows.Forms.CheckState.Checked;
 			this.grabDataNameLabel.Location = new System.Drawing.Point(6, 29);
 			this.grabDataNameLabel.Name = "grabDataNameLabel";
 			this.grabDataNameLabel.Size = new System.Drawing.Size(54, 17);
@@ -534,16 +556,16 @@
 			this.grabSiteTextBox.Name = "grabSiteTextBox";
 			this.grabSiteTextBox.Size = new System.Drawing.Size(191, 20);
 			this.grabSiteTextBox.TabIndex = 3;
-			this.grabSiteTextBox.Text = "http://";
+			this.grabSiteTextBox.Text = "https://eshop.wuerth.de/0/<SKU>.sku/en/US/EUR/";
 			// 
 			// grabSiteHostnameLabel
 			// 
 			this.grabSiteHostnameLabel.AutoSize = true;
 			this.grabSiteHostnameLabel.Location = new System.Drawing.Point(9, 32);
 			this.grabSiteHostnameLabel.Name = "grabSiteHostnameLabel";
-			this.grabSiteHostnameLabel.Size = new System.Drawing.Size(55, 13);
+			this.grabSiteHostnameLabel.Size = new System.Drawing.Size(66, 13);
 			this.grabSiteHostnameLabel.TabIndex = 2;
-			this.grabSiteHostnameLabel.Text = "Hostname";
+			this.grabSiteHostnameLabel.Text = "URL Pattern";
 			// 
 			// consoleGroupBox
 			// 
@@ -576,6 +598,35 @@
 			this.consoleTextBox.TabIndex = 9;
 			this.consoleTextBox.Text = "";
 			// 
+			// label3
+			// 
+			this.label3.AutoSize = true;
+			this.label3.Location = new System.Drawing.Point(403, 19);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(50, 13);
+			this.label3.TabIndex = 19;
+			this.label3.Text = "Identifier:";
+			// 
+			// serializeTab
+			// 
+			this.serializeTab.Controls.Add(this.serializeXMLSave);
+			this.serializeTab.Location = new System.Drawing.Point(4, 22);
+			this.serializeTab.Name = "serializeTab";
+			this.serializeTab.Size = new System.Drawing.Size(609, 307);
+			this.serializeTab.TabIndex = 2;
+			this.serializeTab.Text = "Serialize";
+			this.serializeTab.UseVisualStyleBackColor = true;
+			// 
+			// serializeXMLSave
+			// 
+			this.serializeXMLSave.Location = new System.Drawing.Point(522, 272);
+			this.serializeXMLSave.Name = "serializeXMLSave";
+			this.serializeXMLSave.Size = new System.Drawing.Size(75, 23);
+			this.serializeXMLSave.TabIndex = 0;
+			this.serializeXMLSave.Text = "Save";
+			this.serializeXMLSave.UseVisualStyleBackColor = true;
+			this.serializeXMLSave.Click += new System.EventHandler(this.Serialize_XML_Save);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,7 +636,7 @@
 			this.Controls.Add(this.tabControl);
 			this.Controls.Add(this.progressBar);
 			this.Name = "MainForm";
-			this.Text = "Fonz - Powered by Storefront TM";
+			this.Text = "Shoplifter - Powered by Storefront";
 			this.tabControl.ResumeLayout(false);
 			this.referenceTab.ResumeLayout(false);
 			this.referenceTab.PerformLayout();
@@ -600,6 +651,7 @@
 			this.grabSiteGroupBox.ResumeLayout(false);
 			this.grabSiteGroupBox.PerformLayout();
 			this.consoleGroupBox.ResumeLayout(false);
+			this.serializeTab.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -654,6 +706,9 @@
 		private System.Windows.Forms.RadioButton referenceComparisonDataSKURadio;
 		private System.Windows.Forms.RadioButton referenceComparisonDataProductIdRadio;
 		private System.Windows.Forms.DataGridView referenceComparisonDataGridView;
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.TabPage serializeTab;
+		private System.Windows.Forms.Button serializeXMLSave;
 	}
 }
 

@@ -50,26 +50,30 @@ namespace Fonz.Controllers.Serialize
 
 			#endregion
 
-			// Short Description
-			product.AppendChild(ProductCDataSection("shortDescription", feedProduct.Description));
+			// Descriptions
+			if (!String.IsNullOrWhiteSpace(feedProduct.Description))
+			{
+				// Short Description
+				product.AppendChild(ProductCDataSection("shortDescription", feedProduct.Description));
 
-			// Full Description
-			product.AppendChild(ProductCDataSection("fullDescription", feedProduct.Description));
+				// Full Description
+				product.AppendChild(ProductCDataSection("fullDescription", feedProduct.Description));
+			}
 
 			// Categories
-			if (feedProduct.Categories.Skip(1).Take(2).Count() > 0)
-				product.AppendChild(ProductCategoriesNode(feedProduct.Categories.Skip(2).Take(2).ToArray()));
+			if (feedProduct.Categories != null && feedProduct.Categories.Skip(1).Take(2).Count() > 0)
+				product.AppendChild(ProductCategoriesNode(feedProduct.Categories.Skip(1).Take(2).ToArray()));
 
 			// Pictures
 			if (!String.IsNullOrEmpty(feedProduct.Picture))
 				product.AppendChild(ProductPictureNode(feedProduct));
 
 			// Attributes
-			if (feedProduct.Attributes.Count() > 0)
+			if (feedProduct.Attributes != null && feedProduct.Attributes.Count() > 0)
 				product.AppendChild(ProductAttributesNode(feedProduct.Attributes));
 
 			// Documents
-			if (feedProduct.Documents.Where(d => d.EndsWith(".pdf")).Count() > 0)
+			if (feedProduct.Documents != null && feedProduct.Documents.Where(d => d.EndsWith(".pdf")).Count() > 0)
 				product.AppendChild(ProductDocumentsNode(feedProduct.Documents.Where(d => d.EndsWith(".pdf")).ToArray()));
 
 			return product;
@@ -118,13 +122,18 @@ namespace Fonz.Controllers.Serialize
 		{
 			var node = _document.CreateElement("categories");
 
+			var categoryNode = _document.CreateElement("category");
+
+			var categoryPath = String.Empty;
+
 			foreach (var category in data)
 			{
-				var categoryNode = _document.CreateElement("category");
-				categoryNode.SetAttribute("path", category);
-
-				node.AppendChild(categoryNode);
+				categoryPath += String.Concat("/" + category.Replace("/", "-"));
 			}
+
+			categoryNode.SetAttribute("path", categoryPath);
+
+			node.AppendChild(categoryNode);
 
 			return node;
 		}
@@ -136,7 +145,7 @@ namespace Fonz.Controllers.Serialize
 			var setNode = _document.CreateElement("set");
 			setNode.SetAttribute("name", "Technical Information");
 
-			for (int i = 0; i <= data.Count() && i % 2 == 0; i+= 2)
+			for (int i = 0; i <= data.Count() - 1 && i % 2 == 0; i+= 2)
 			{
 				var attributeNode = _document.CreateElement("attribute");
 				attributeNode.SetAttribute("name", data[i]);

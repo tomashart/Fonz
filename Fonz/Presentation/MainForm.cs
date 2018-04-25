@@ -155,7 +155,7 @@ namespace Fonz
 
 		#region Grab Tab
 
-		private void Grab_Data_Commence(object sender, EventArgs e)
+		private async void Grab_Data_Commence(object sender, EventArgs e)
 		{
 			var selectors = new XmlProduct();
 
@@ -181,7 +181,7 @@ namespace Fonz
 
 			GrabController gc = new GrabController();
 
-			gc.Grab(grabSiteTextBox.Text, _comparisonData.ToList(), selectors);
+			await gc.GrabAsync(grabSiteTextBox.Text, _comparisonData.Skip(1000).Take(100).ToList(), selectors);
 
 			_grabbedData = gc._grabbedData;
 
@@ -198,9 +198,11 @@ namespace Fonz
 
 			sc.CreateDocument();
 
+			sc.CreateImportElement();
+
 			sc.CreateProductsElement(_grabbedData);
 
-			sc._document.Save("C:\\Projects\\Storefront 7\\Fonz");
+			sc._document.Save("C:\\Projects\\Storefront 7\\Fonz\\xmlgenerate.xml");
 		}
 
 		#endregion

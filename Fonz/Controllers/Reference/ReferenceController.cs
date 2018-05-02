@@ -67,7 +67,7 @@ namespace Fonz.Controllers.Reference
 				result.Add(
 					new Models.Reference
 						{
-							Sku = segments[0].Replace(" ", "").Replace("\"", ""),
+							Sku = segments[0].Replace("\"", ""),
 							Gtin = segments[1].Replace(" ", "").Replace("\"", ""),
 							ProductId = segments[2].Replace(" ", "").Replace("\"", "")
 					}

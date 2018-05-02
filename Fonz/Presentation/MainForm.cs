@@ -181,11 +181,11 @@ namespace Fonz
 
 			GrabController gc = new GrabController();
 
-			await gc.GrabAsync(grabSiteTextBox.Text, _comparisonData.Skip(1000).Take(100).ToList(), selectors);
+			await gc.GrabAsync(grabSiteTextBox.Text, _comparisonData.ToList(), selectors);
 
 			_grabbedData = gc._grabbedData;
 
-			//WriteLine(consoleTextBox, "Product(s) imported successfully: " + _grabbedData.Count);
+			WriteLine(consoleTextBox, "Product(s) imported successfully: " + _grabbedData.Count);
 		}
 
 		#endregion
@@ -196,6 +196,8 @@ namespace Fonz
 		{
 			SerializeController sc = new SerializeController();
 
+			WriteLine(consoleTextBox, "Serializing data");
+
 			sc.CreateDocument();
 
 			sc.CreateImportElement();
@@ -203,6 +205,8 @@ namespace Fonz
 			sc.CreateProductsElement(_grabbedData);
 
 			sc._document.Save("C:\\Projects\\Storefront 7\\Fonz\\xmlgenerate.xml");
+
+			WriteLine(consoleTextBox, "Data serialized successfully");
 		}
 
 		#endregion

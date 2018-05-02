@@ -25,7 +25,7 @@ namespace Fonz.Controllers.Grab
 
 				if (identifier == "<SKU>")
 				{
-					single = reference.Sku.Remove(0, 1);
+					single = reference.Sku.Replace(" ", "").Remove(0, 1);
 				}
 				else
 				{
@@ -40,7 +40,11 @@ namespace Fonz.Controllers.Grab
 				if (document.QuerySelector("body.product_OfflineProduct") != null)
 					continue;
 
-				product.Name = document.QuerySelector(selectors.Name).TextContent.Replace("\n", "");
+				product.Name = document.QuerySelector(selectors.Name) != null ? document.QuerySelector(selectors.Name).TextContent.Replace("\n", "") : null;
+
+				if (product.Name == null)
+					continue;
+
 				product.Sku = reference.Sku;
 				product.Gtin = reference.Gtin;
 				product.Description = document.QuerySelector(selectors.Description) != null ? document.QuerySelector(selectors.Description).TextContent.Replace("\n", "") : null;
